@@ -14,10 +14,7 @@ if( inputdog_pressed("zoom") )
 {
     zoomMode++;
     if(zoomMode >= zoomModeMax)
-    {
         zoomMode = 0;
-        print("zoom mode: 0");
-    }
 }
 switch(zoomMode)
 {
