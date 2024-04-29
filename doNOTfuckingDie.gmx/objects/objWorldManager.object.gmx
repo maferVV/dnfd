@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>/// level depth and sea setup
 
+depth_max = 1000;
+depth_min = -1000;
+
+instance_singleton(objSeaFloorShader)
 </string>
           </argument>
         </arguments>
@@ -54,7 +58,6 @@ var cam = objCamera;
 with(cam)
 {
     state_switch(camFollow);
-    view_zoom = 7;
 }
 
 

@@ -1095,9 +1095,9 @@
     <object>objects\___fishy</object>
     <objects name="Managers">
       <objects name="Persistent Objects">
-        <object>objects\objCursor</object>
-        <object>objects\objDisplayManager</object>
         <object>objects\objGameManager</object>
+        <object>objects\objDisplayManager</object>
+        <object>objects\objCursor</object>
         <object>objects\objTouchControls</object>
       </objects>
       <object>objects\objConsole</object>

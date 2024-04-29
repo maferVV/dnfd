@@ -29,7 +29,7 @@
 depth+=10;
 switchTransparency = false;
 
-textureSprite = sprCoral;
+textureSprite = sprWaterOG;
 textureSpriteIndex = 0;
 textureSpd = 0;
 textureScale = 300;
