@@ -1,0 +1,38 @@
+Cursor sprites
+Kicked In Teeth
+kicked-in-teeth.itch.io/point
+
+General Assets
+Kenney.nl
+
+Rubik Font
+Hubert and Fischer, Meir Sadan, Cyreal
+
+Fake 3d based on
+Gizmo199
+
+UI Framework
+NailBuster Software Inc.
+nailbuster.com/?page_id=57
+
+Input Manager
+Messhof LLC.
+github.com/messhof/Input-Dog
+
+Developer Console 2.0
+Michael Dearman
+michael@icarustree.co.uk
+
+Finite State Machines and Views system
+Jonathan Peterson
+pixelatedpope.com
+
+Easing Functions
+Davetech
+davetech.co.uk
+
+General Scripts
+GMLscripts.com
+
+The Mojo Collective
+indiedb.com/company/the-mojo-collective
