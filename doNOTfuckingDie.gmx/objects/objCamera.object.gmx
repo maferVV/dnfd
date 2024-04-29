@@ -29,6 +29,9 @@
 tmc_dt_instance_init();
 view_zoom = 1;
 view_max_zoom = 10;
+
+zoomMode = 0;
+
 ideal_wview = view_wview;
 ideal_hview = view_hview;
 ideal_angle = 0;
@@ -109,8 +112,6 @@ state_machine_init();
 
 state_create("static", camStatic);
 state_create("follow", camFollow);
-state_create("followOrthogonal", camFollowOrthogonal);
-
 
 state_init(camStatic);
 </string>

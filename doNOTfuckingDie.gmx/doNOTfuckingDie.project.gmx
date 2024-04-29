@@ -290,80 +290,78 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="Starter Kit">
-      <script>scripts\initiateGame.gml</script>
-      <script>scripts\starter_kit_enums.gml</script>
-      <scripts name="Game Manager">
-        <scripts name="Printing">
-          <script>scripts\print.gml</script>
-          <script>scripts\print_vars.gml</script>
-          <script>scripts\error.gml</script>
-        </scripts>
-        <scripts name="Pausing">
-          <script>scripts\screenfreeze.gml</script>
-          <scripts name="Internal">
-            <script>scripts\toggle_pause.gml</script>
-            <script>scripts\pause_game.gml</script>
-            <script>scripts\unpause_game.gml</script>
-            <script>scripts\pause_game_freeze.gml</script>
-            <script>scripts\create_pause_surface.gml</script>
-            <script>scripts\create_pause_panel.gml</script>
-            <script>scripts\draw_paused_surface.gml</script>
-            <script>scripts\pause_deactivate_objects.gml</script>
-            <script>scripts\game_end_friendly.gml</script>
-          </scripts>
-        </scripts>
-        <scripts name="Soundy System">
-          <script>scripts\audio_play_soundy.gml</script>
-          <script>scripts\setMusicGain.gml</script>
-          <script>scripts\playBeep.gml</script>
-          <script>scripts\soundy_create_so.gml</script>
-        </scripts>
-        <scripts name="TMC dt Management">
-          <script>scripts\dt_create.gml</script>
-          <script>scripts\dt_beginstep.gml</script>
-          <script>scripts\dt_roomstart.gml</script>
-          <script>scripts\dt_roomend.gml</script>
-        </scripts>
-        <scripts name="Platform detection">
-          <script>scripts\is_browser.gml</script>
-          <script>scripts\is_mobile.gml</script>
-          <script>scripts\os_browser_string.gml</script>
-          <script>scripts\os_type_string.gml</script>
-        </scripts>
-        <script>scripts\player_set_focus.gml</script>
+    <script>scripts\initiateGame.gml</script>
+    <scripts name="Printing">
+      <script>scripts\print.gml</script>
+      <script>scripts\print_vars.gml</script>
+      <script>scripts\error.gml</script>
+    </scripts>
+    <scripts name="Camera">
+      <scripts name="Camera FSM">
+        <script>scripts\camStatic.gml</script>
+        <script>scripts\camFollow.gml</script>
+        <script>scripts\camFollowOrthogonal.gml</script>
       </scripts>
-      <scripts name="Camera">
-        <scripts name="Camera FSM">
-          <script>scripts\camStatic.gml</script>
-          <script>scripts\camFollow.gml</script>
-          <script>scripts\camFollowOrthogonal.gml</script>
+      <script>scripts\scrCamUpdate.gml</script>
+      <script>scripts\scrCamCulling.gml</script>
+      <script>scripts\screenshake.gml</script>
+      <script>scripts\scrCamControlWASD.gml</script>
+      <script>scripts\scrCamControlMouse.gml</script>
+    </scripts>
+    <scripts name="Game Manager">
+      <scripts name="Pausing">
+        <script>scripts\screenfreeze.gml</script>
+        <scripts name="Internal">
+          <script>scripts\toggle_pause.gml</script>
+          <script>scripts\pause_game.gml</script>
+          <script>scripts\unpause_game.gml</script>
+          <script>scripts\pause_game_freeze.gml</script>
+          <script>scripts\create_pause_surface.gml</script>
+          <script>scripts\create_pause_panel.gml</script>
+          <script>scripts\draw_paused_surface.gml</script>
+          <script>scripts\pause_deactivate_objects.gml</script>
+          <script>scripts\game_end_friendly.gml</script>
         </scripts>
-        <script>scripts\scrCamUpdate.gml</script>
-        <script>scripts\scrCamCulling.gml</script>
-        <script>scripts\screenshake.gml</script>
-        <script>scripts\scrCamControlWASD.gml</script>
-        <script>scripts\scrCamControlMouse.gml</script>
       </scripts>
-      <scripts name="Cursor">
-        <script>scripts\cursor_set_color.gml</script>
-        <script>scripts\cursor_set.gml</script>
+      <scripts name="Soundy System">
+        <script>scripts\audio_play_soundy.gml</script>
+        <script>scripts\setMusicGain.gml</script>
+        <script>scripts\playBeep.gml</script>
+        <script>scripts\soundy_create_so.gml</script>
       </scripts>
+      <scripts name="TMC dt Management">
+        <script>scripts\dt_create.gml</script>
+        <script>scripts\dt_beginstep.gml</script>
+        <script>scripts\dt_roomstart.gml</script>
+        <script>scripts\dt_roomend.gml</script>
+      </scripts>
+      <scripts name="Platform detection">
+        <script>scripts\is_browser.gml</script>
+        <script>scripts\is_mobile.gml</script>
+        <script>scripts\os_browser_string.gml</script>
+        <script>scripts\os_type_string.gml</script>
+      </scripts>
+      <script>scripts\player_set_focus.gml</script>
+    </scripts>
+    <script>scripts\starter_kit_enums.gml</script>
+    <scripts name="Cursor">
+      <script>scripts\cursor_set_color.gml</script>
+      <script>scripts\cursor_set.gml</script>
       <scripts name="Particles and Effects">
         <script>scripts\particle_create.gml</script>
         <script>scripts\animate_wave.gml</script>
         <script>scripts\draw_collider.gml</script>
       </scripts>
-      <scripts name="Display">
-        <script>scripts\set_vsync.gml</script>
-        <script>scripts\get_vsync.gml</script>
-        <script>scripts\scrSetWindowSize.gml</script>
-        <script>scripts\scrToggleWindowSize.gml</script>
-        <scripts name="LUT transition FSM">
-          <script>scripts\lut_tex_transition_ready.gml</script>
-          <script>scripts\lut_tex_transition_start.gml</script>
-          <script>scripts\lut_tex_transition_strength.gml</script>
-        </scripts>
+    </scripts>
+    <scripts name="Display">
+      <script>scripts\set_vsync.gml</script>
+      <script>scripts\get_vsync.gml</script>
+      <script>scripts\scrSetWindowSize.gml</script>
+      <script>scripts\scrToggleWindowSize.gml</script>
+      <scripts name="LUT transition FSM">
+        <script>scripts\lut_tex_transition_ready.gml</script>
+        <script>scripts\lut_tex_transition_start.gml</script>
+        <script>scripts\lut_tex_transition_strength.gml</script>
       </scripts>
       <scripts name="Physics">
         <scripts name="Bat Enemy">
@@ -409,35 +407,35 @@
           <script>scripts\so_sound_after_create.gml</script>
         </scripts>
       </scripts>
-      <scripts name="Tiles">
-        <script>scripts\tileset_create.gml</script>
-        <script>scripts\tile_get_bitmask_8.gml</script>
+    </scripts>
+    <scripts name="Tiles">
+      <script>scripts\tileset_create.gml</script>
+      <script>scripts\tile_get_bitmask_8.gml</script>
+    </scripts>
+    <scripts name="Highscore">
+      <script>scripts\sendScore.gml</script>
+      <script>scripts\getScores.gml</script>
+      <scripts name="Internal">
+        <script>scripts\scr_send_score.gml</script>
+        <script>scripts\scr_get_scores.gml</script>
+        <script>scripts\string_split_array.gml</script>
+        <script>scripts\url_encode.gml</script>
+        <script>scripts\draw_text_highscore.gml</script>
       </scripts>
-      <scripts name="Highscore">
-        <script>scripts\sendScore.gml</script>
-        <script>scripts\getScores.gml</script>
-        <scripts name="Internal">
-          <script>scripts\scr_send_score.gml</script>
-          <script>scripts\scr_get_scores.gml</script>
-          <script>scripts\string_split_array.gml</script>
-          <script>scripts\url_encode.gml</script>
-          <script>scripts\draw_text_highscore.gml</script>
-        </scripts>
-      </scripts>
-      <scripts name="GUI">
-        <script>scripts\ui_menu_callbacks.gml</script>
-        <scripts name="Panel creation">
-          <script>scripts\create_panel_menu.gml</script>
-          <script>scripts\create_panel_settings.gml</script>
-          <script>scripts\create_panel_highscore.gml</script>
-          <script>scripts\create_panel_achievements.gml</script>
-          <script>scripts\create_panel_display.gml</script>
-          <script>scripts\create_panel_sound.gml</script>
-          <script>scripts\create_panel_credits.gml</script>
-          <script>scripts\create_panel_howToPlay.gml</script>
-          <script>scripts\create_panel_controls.gml</script>
-          <script>scripts\create_panel_pause.gml</script>
-        </scripts>
+    </scripts>
+    <scripts name="GUI">
+      <script>scripts\ui_menu_callbacks.gml</script>
+      <scripts name="Panel creation">
+        <script>scripts\create_panel_menu.gml</script>
+        <script>scripts\create_panel_settings.gml</script>
+        <script>scripts\create_panel_highscore.gml</script>
+        <script>scripts\create_panel_achievements.gml</script>
+        <script>scripts\create_panel_display.gml</script>
+        <script>scripts\create_panel_sound.gml</script>
+        <script>scripts\create_panel_credits.gml</script>
+        <script>scripts\create_panel_howToPlay.gml</script>
+        <script>scripts\create_panel_controls.gml</script>
+        <script>scripts\create_panel_pause.gml</script>
       </scripts>
     </scripts>
     <scripts name="Helpers">
@@ -938,71 +936,69 @@
       <script>scripts\get_terrain_color.gml</script>
       <script>scripts\add_chunk.gml</script>
     </scripts>
-    <scripts name="Box2D, Game">
-      <scripts name="Rope scripts">
-        <script>scripts\rope_instance_create.gml</script>
-        <scripts name="Internal (Used by objRope)">
-          <script>scripts\rope_init.gml</script>
-          <script>scripts\rope_create.gml</script>
-          <script>scripts\rope_join_start.gml</script>
-          <script>scripts\rope_join_end.gml</script>
-          <script>scripts\rope_draw.gml</script>
-          <script>scripts\rope_cut.gml</script>
-          <script>scripts\rope_segment_get_number.gml</script>
-          <script>scripts\rope_get_number.gml</script>
-          <script>scripts\rope_segment_get_instance.gml</script>
-          <script>scripts\rope_segment_get_id.gml</script>
-        </scripts>
+    <scripts name="Rope scripts">
+      <script>scripts\rope_instance_create.gml</script>
+      <scripts name="Internal (Used by objRope)">
+        <script>scripts\rope_init.gml</script>
+        <script>scripts\rope_create.gml</script>
+        <script>scripts\rope_join_start.gml</script>
+        <script>scripts\rope_join_end.gml</script>
+        <script>scripts\rope_draw.gml</script>
+        <script>scripts\rope_cut.gml</script>
+        <script>scripts\rope_segment_get_number.gml</script>
+        <script>scripts\rope_get_number.gml</script>
+        <script>scripts\rope_segment_get_instance.gml</script>
+        <script>scripts\rope_segment_get_id.gml</script>
       </scripts>
-      <scripts name="boat behavior">
-        <scripts name="FSM">
-          <script>scripts\boat_idle.gml</script>
-          <script>scripts\boat_moving.gml</script>
-        </scripts>
-        <script>scripts\boat_rope_behavior.gml</script>
-        <script>scripts\boat_readInputs.gml</script>
-        <script>scripts\boat_defaultInputs.gml</script>
-      </scripts>
-      <scripts name="trawlWorldManager">
-        <script>scripts\hours_passed.gml</script>
-        <script>scripts\get_time_string.gml</script>
-      </scripts>
-      <scripts name="ChunkManager">
-        <script>scripts\attempt_delete_chunk.gml</script>
-        <script>scripts\autoload_chunks.gml</script>
-        <script>scripts\autounload_chunks.gml</script>
-        <script>scripts\chunk_key_is_in_grid.gml</script>
-        <script>scripts\chunk_in_range.gml</script>
-        <script>scripts\chunk_coords_to_key.gml</script>
-      </scripts>
-      <scripts name="Luz">
-        <scripts name="FSM">
-          <script>scripts\luz_idle.gml</script>
-          <script>scripts\luz_moving.gml</script>
-          <script>scripts\luz_jump.gml</script>
-        </scripts>
-        <script>scripts\luz_readInputs.gml</script>
-        <script>scripts\luz_defaultInputs.gml</script>
-        <script>scripts\scrLuzIdleBlinkEnd.gml</script>
-        <script>scripts\luz_is_grounded.gml</script>
-        <script>scripts\luz_movedir_move.gml</script>
-        <script>scripts\luz_on_water.gml</script>
-      </scripts>
-      <scripts name="Chunk">
-        <script>scripts\add_trawl_chunk.gml</script>
-        <script>scripts\trawl_chunk_create_content.gml</script>
-        <script>scripts\log_entity_metadata.gml</script>
-        <script>scripts\rand_buffer.gml</script>
-        <script>scripts\fill_rand_buffer.gml</script>
-        <script>scripts\generate_trawl_chunk.gml</script>
-        <script>scripts\chunk_instantiate_entities.gml</script>
-        <script>scripts\get_chunk_from_world_coords.gml</script>
-        <script>scripts\get_chunk_coords_from_world_coords.gml</script>
-        <script>scripts\log_entity_destroyed.gml</script>
-        <script>scripts\chunk_apply_entity_deltas.gml</script>
-      </scripts>
-      <script>scripts\entity_log_removal.gml</script>
     </scripts>
+    <scripts name="boat behavior">
+      <scripts name="FSM">
+        <script>scripts\boat_idle.gml</script>
+        <script>scripts\boat_moving.gml</script>
+      </scripts>
+      <script>scripts\boat_rope_behavior.gml</script>
+      <script>scripts\boat_readInputs.gml</script>
+      <script>scripts\boat_defaultInputs.gml</script>
+    </scripts>
+    <scripts name="trawlWorldManager">
+      <script>scripts\hours_passed.gml</script>
+      <script>scripts\get_time_string.gml</script>
+    </scripts>
+    <scripts name="Luz">
+      <scripts name="FSM">
+        <script>scripts\luz_idle.gml</script>
+        <script>scripts\luz_moving.gml</script>
+        <script>scripts\luz_jump.gml</script>
+      </scripts>
+      <script>scripts\luz_defaultInputs.gml</script>
+      <script>scripts\luz_is_grounded.gml</script>
+      <script>scripts\luz_movedir_move.gml</script>
+      <script>scripts\luz_on_water.gml</script>
+      <script>scripts\luz_readInputs.gml</script>
+      <script>scripts\scrLuzIdleBlinkEnd.gml</script>
+    </scripts>
+    <scripts name="ChunkManager">
+      <script>scripts\attempt_delete_chunk.gml</script>
+      <script>scripts\autoload_chunks.gml</script>
+      <script>scripts\autounload_chunks.gml</script>
+      <script>scripts\chunk_key_is_in_grid.gml</script>
+      <script>scripts\chunk_in_range.gml</script>
+      <script>scripts\chunk_coords_to_key.gml</script>
+    </scripts>
+    <scripts name="Chunk">
+      <script>scripts\add_trawl_chunk.gml</script>
+      <script>scripts\trawl_chunk_create_content.gml</script>
+      <script>scripts\log_entity_metadata.gml</script>
+      <script>scripts\rand_buffer.gml</script>
+      <script>scripts\fill_rand_buffer.gml</script>
+      <script>scripts\generate_trawl_chunk.gml</script>
+      <script>scripts\chunk_instantiate_entities.gml</script>
+      <script>scripts\get_chunk_from_world_coords.gml</script>
+      <script>scripts\get_chunk_coords_from_world_coords.gml</script>
+      <script>scripts\log_entity_destroyed.gml</script>
+      <script>scripts\chunk_apply_entity_deltas.gml</script>
+    </scripts>
+    <script>scripts\entity_log_removal.gml</script>
     <scripts name="Pathfinding">
       <scripts name="internal">
         <script>scripts\find_path_cache.gml</script>
@@ -1138,13 +1134,13 @@
         <object>objects\objWillow</object>
       </objects>
       <objects name="Entities and Things">
+        <object>objects\objSeaFloorShader</object>
         <object>objects\objOrganism</object>
         <object>objects\objHouse</object>
         <object>objects\objWalkerTreeBranch</object>
         <object>objects\objWalkerTreeBase</object>
         <object>objects\sprClockBody</object>
         <object>objects\objWaterColor</object>
-        <object>objects\objSeaFloorShader</object>
         <object>objects\objRocks</object>
         <object>objects\objSegment</object>
       </objects>

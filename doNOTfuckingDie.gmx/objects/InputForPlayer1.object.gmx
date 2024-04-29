@@ -34,6 +34,7 @@ inputdog_add_input("down",   ord("S"),    inputdog_gp_left_stick_down);
 inputdog_add_input("action1",   ord("E"),   gp_face3);
 inputdog_add_input("action2",   mb_left,   gp_face4);
 inputdog_add_input("jump",   vk_space,   gp_face4);
+inputdog_add_input("zoom",   ord("Z"),   gp_face4);
 
 // 3d
 </string>
