@@ -34,7 +34,7 @@ global.debug = true;
 show_debug_overlay(false&amp;&amp;global.debug);
 
 /// own enums
-starter_kit_enums();
+game_enums();
 
 /// Menu option "game"
 play_room = rmMenu + 1;

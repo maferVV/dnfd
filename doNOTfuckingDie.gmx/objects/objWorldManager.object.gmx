@@ -53,7 +53,7 @@ instance_singleton(objSeaFloorShader)
             <kind>1</kind>
             <string>/// set camera and player focus
 
-var cam = objCamera;
+cam = objCamera;
 
 with(cam)
 {
@@ -114,7 +114,10 @@ sunset_hour = 18;
             <kind>1</kind>
             <string>/// chunkManager, world bounds
 
-chunkManager = instance_create(x, y, objChunkManager);
+//chunkManager = instance_create(x, y, objChunkManager);
+
+db = instance_create(x, y, objMMDatabase);
+db.cam = self.cam;
 
 // world bounds corners
 var worldCenterX = room_width/2;

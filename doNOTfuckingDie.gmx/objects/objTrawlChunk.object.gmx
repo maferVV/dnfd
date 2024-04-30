@@ -56,7 +56,7 @@ rivers_grid = noone;
 
 debug = false&amp;&amp;global.debug;
 myManager = noone;
-entity_metadata = ds_map_create(); // map of maps
+entity_metadata = ds_map_create(); // a map of maps
 generated_objects = ds_map_create();
 rand = 0; // array
 rand_i = 0;

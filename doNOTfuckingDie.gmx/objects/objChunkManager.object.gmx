@@ -129,7 +129,7 @@ dt_alarm[1] = cooldown/2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Game Properties
+            <string>/// Game Properties &amp; pathfinding
 
 turbulence = 0;
 seaCurrentDir = 0; // ocean current direction
