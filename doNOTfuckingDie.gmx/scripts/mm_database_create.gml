@@ -11,11 +11,13 @@ drawer = noone;
 chunk_size = 8;
 
 /// Data structures
-// chunks
+// A map containing maps (representing chunks)
+//     containing grids (representing perlin grids)
 chunks = ds_map_create();
-// map of lists containing entity ids
-chunks_destroyed_entity_ids = ds_map_create();
-
+// A map containing maps (representing chunks)
+//     containing maps (representing instances with unique ids)
+//         containing maps (an attribute:value relationship)
+blueprints = ds_map_create();
 /// perlin noise info
 seed = random_range(65536,6553600);
 //DS_MAP with possible script outputs and cooresponding tile numbers. Decoded from JSON string.

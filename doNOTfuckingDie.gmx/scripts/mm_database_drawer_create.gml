@@ -15,5 +15,5 @@ chunk_y_in_room = 0;
 
 
 // Size of each tile in pixels.
-tile_size_pixels = 16;
+tile_size_pixels = 8;
 

@@ -17,6 +17,7 @@ for(var i = 0; i < weird_cells; i++)
 
 var newSize = tileSize/sprite_get_width(stackRocks);
 // go through grid
+/*
 for(var i = 0; i < width; i++)
 {
     for(var j = 0; j < height; j++)

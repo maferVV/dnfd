@@ -384,8 +384,6 @@
             <script>scripts\add_trawl_chunk.gml</script>
             <script>scripts\trawl_chunk_create_content.gml</script>
             <script>scripts\log_entity_metadata.gml</script>
-            <script>scripts\rand_buffer.gml</script>
-            <script>scripts\fill_rand_buffer.gml</script>
             <script>scripts\generate_trawl_chunk.gml</script>
             <script>scripts\chunk_instantiate_entities.gml</script>
             <script>scripts\get_chunk_from_world_coords.gml</script>
@@ -398,7 +396,6 @@
           <script>scripts\autounload_chunks.gml</script>
           <script>scripts\chunk_key_is_in_grid.gml</script>
           <script>scripts\chunk_in_range.gml</script>
-          <script>scripts\chunk_coords_to_key.gml</script>
           <script>scripts\entity_log_removal.gml</script>
         </scripts>
         <scripts name="Mappa Mundi">
@@ -406,6 +403,16 @@
             <script>scripts\mm_database_create.gml</script>
             <script>scripts\mm_database_destroy.gml</script>
             <script>scripts\mm_database_load_chunk.gml</script>
+            <script>scripts\mm_database_generate_chunk_data.gml</script>
+            <script>scripts\mm_database_create_blueprints.gml</script>
+            <script>scripts\chunk_coords_to_key.gml</script>
+            <scripts name="rand buffer">
+              <script>scripts\rand_array_init.gml</script>
+              <script>scripts\fill_rand_buffer.gml</script>
+              <script>scripts\rand_buffer.gml</script>
+            </scripts>
+            <script>scripts\mm_database_save_blueprints.gml</script>
+            <script>scripts\mm_database_get_chunk_blueprints.gml</script>
           </scripts>
           <scripts name="database debug drawer">
             <script>scripts\mm_database_drawer_create.gml</script>
@@ -655,8 +662,9 @@
         <script>scripts\ds_map_to_string.gml</script>
         <script>scripts\ds_map_to_inline_string.gml</script>
         <script>scripts\ds_map_print.gml</script>
-        <script>scripts\ds_map_destroy_in_map.gml</script>
+        <script>scripts\ds_maps_destroy_in_map.gml</script>
         <script>scripts\ds_lists_destroy_in_map.gml</script>
+        <script>scripts\ds_grids_destroy_in_map.gml</script>
       </scripts>
       <scripts name="Grids">
         <script>scripts\ds_grid_to_string.gml</script>

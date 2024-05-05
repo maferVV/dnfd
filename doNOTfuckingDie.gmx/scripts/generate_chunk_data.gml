@@ -1,19 +1,14 @@
-/// generate_trawl_chunk(octaves, persistence, wavelength_modifier, lacunarity, isIsland, isRefined)
+/// generate_chunk_data(octaves, persistence, wavelength_modifier, lacunarity, xoffset, yoffset)
 ///
 /// Uses the following instance vars:
 ///     - seed
 ///     - chunk_size
 ///     - tile_map
-///     - xoffset
-///     - yoffset
 /// 
 ///         Octaves - How many layers of noise will be summarised for the final output. More octave, more errosion.
 ///         Persistence - How fast amplitude of each new octave will diminish. Higher values = more random generation.
 ///         Lacunarity - How much frequency of each new octave will increase. Lower values = smoother islands \ terrain.
-///         Is island - If TRUE, elliptical gradient is applied and an island will be generated.
-///                     If FALSE, full room terrain will be generated.
-///
-///         Wavelength Modifier is basically a Chunk Size.
+///         Wavelength Modifier - is basically a Chunk Size.
 ///         The resulting grid will be obviously the same size, but a larger number
 ///         will "zoom out" the resulting picture.
 ///             At 1 the chunk for generation will be = grid width / 1.

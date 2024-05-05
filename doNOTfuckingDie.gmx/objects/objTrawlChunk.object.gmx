@@ -99,7 +99,7 @@ ds_grid_destroy_if_exists(funkiness_grid);
 
 instance_destroy_in_map(generated_objects);
 ds_map_destroy(generated_objects);
-ds_map_destroy_in_map(entity_metadata);
+ds_maps_destroy_in_map(entity_metadata);
 ds_map_destroy(entity_metadata);
 </string>
           </argument>

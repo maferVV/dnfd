@@ -12,7 +12,16 @@ if(instance_exists(cursor) && instance_exists(db) && createWithMouse)
     
     if(mouse_check_button_pressed(mb_left))
     {
-        with(db) mm_database_load_chunk(other.chunk_x, other.chunk_y);
+        with(db)
+        {
+            if( true /* chunk not on json */ )
+            {
+                mm_database_load_chunk(other.chunk_x, other.chunk_y);
+                mm_database_create_blueprints(other.chunk_x, other.chunk_y);
+                mm_database_save_blueprints();
+            }
+            
+        }
     }
     
     if(mouse_check_button_pressed(mb_right))

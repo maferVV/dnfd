@@ -7,7 +7,7 @@
     for(var i = 0; i < array_length_1d(arr); i++)
     {
         s += "#";
-        s += string_lpad(string(i),lpad,"0")+":" +string( arr[i] );
+        s += "["+string_lpad(string(i),lpad,"0")+"] "+string( arr[i] );
     }
     return s;
 }

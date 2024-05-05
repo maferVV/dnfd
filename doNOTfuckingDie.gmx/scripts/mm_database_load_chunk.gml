@@ -1,59 +1,47 @@
 /// mm_database_load_chunk(x, y)
-
+// Gets perlin data and makes all random() calculations for later creating build instructions.
+// Returns false if it couldnt be created
 var chunk, xx, yy, key;
-xx = argument0;
-yy = argument1;
-key = string(xx)+","+string(yy);
+xx = argument0; // chunk x offset
+yy = argument1; // chunk y offset
+key = chunk_coords_to_key(string(xx), string(yy));
 
 
-if( !ds_map_exists(chunks, key) && chunk_in_range(xx, yy) )
+if( !ds_map_exists(chunks, key) )
 {
-    chunk = instance_create(0+(xx*chunk_width),0+(yy*chunk_height),objTrawlChunk);
-    with(chunk)
+    // ds_map to be filled with grids
+    chunk = ds_map_create();
+    rand_array_init(seed, xx, yy);
+    var elevation_grid = mm_database_generate_chunk_data(8,
+                                                            0.666,
+                                                            0.5,
+                                                            1.2042,
+                                                            xx,
+                                                            yy);
+    seed += 666+100*rand_buffer();
+    var rivers_grid = mm_database_generate_chunk_data(4,
+                                                        0.666,
+                                                        0.43,
+                                                        1.2042,
+                                                        xx,
+                                                        yy);
+    var weird_min = 1;
+    var weird_max = 4;
+    var weird_cells = round(rand_buffer()*(weird_max-weird_min)+weird_min);
+    var weird_grid = ds_grid_create(chunk_size, chunk_size);
+    for(var i = 0; i < weird_cells; i++)
     {
-        myManager = other.id;
-        seed = other.seed;
-        tile_map = other.tile_map;
+        var xx = floor(rand_buffer() * chunk_size);
+        var yy = floor(rand_buffer() * chunk_size);
         
-        tileSize = other.chunk_tileSize;
-        width = other.chunk_size;
-        height = other.chunk_size;
-        image_xscale = other.chunk_width;
-        image_yscale = other.chunk_height;
-        depth = other.depth;
-        xoffset = xx;
-        yoffset = yy;
-        
-        seed = other.seed;
-        elevation_grid = generate_trawl_chunk(8,
-                                            0.666,
-                                            0.5,
-                                            1.2042,
-                                            false,
-                                            false);
-        seed = other.seed + 666;
-        rivers_grid = generate_trawl_chunk(4,
-                                            0.666,
-                                            0.43,
-                                            1.2042,
-                                            false,
-                                            false);
-        /*seed = other.seed + 10;
-        funkiness_grid = generate_trawl_chunk(4,
-                                            0.3,
-                                            1,
-                                            1.2042,
-                                            false,
-                                            false);
-        */
-        
-        random_set_seed( hash_function3(seed, xoffset, yoffset) );
-        fill_rand_buffer();
-        trawl_chunk_create_content();
-        chunk_apply_entity_deltas();
-        chunk_instantiate_entities();
+        weird_grid[# xx, yy] = 1;
     }
-    ds_map_add(chunks, key, chunk);
+    
+    // adds all grids to the map representing the chunk
+    ds_map_add(chunk, "elevation_grid", elevation_grid);
+    ds_map_add(chunk, "rivers_grid", rivers_grid);
+    ds_map_add(chunk, "weird_grid", weird_grid);
+    ds_map_add_map(chunks, key, chunk);
     return true;
 }
 
