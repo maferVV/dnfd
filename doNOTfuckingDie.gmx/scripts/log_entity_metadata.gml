@@ -30,10 +30,4 @@
     }
     // Adds entity to chunk ds
     ds_map_add(map, type_str, value);
-    
-    if(type_str == "obj")
-    {
-        print_vars("chunkid", chunk, "entityid", entityid);
-    }
-    
 }

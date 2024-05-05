@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="15" name="datafiles">
-    <datafiles number="15" name="dev_manuals">
+  <datafiles number="22" name="datafiles">
+    <datafiles number="22" name="dev_manuals">
       <datafile>
         <name>dev_console_readme.html</name>
         <exists>-1</exists>
@@ -142,6 +142,125 @@
       </ConfigOptions>
       <filename>howToPlay.txt</filename>
     </datafile>
+    <datafile>
+      <name>ExecuteShell.dll</name>
+      <exists>-1</exists>
+      <size>97792</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>ExecuteShell.dll</filename>
+    </datafile>
+    <datafile>
+      <name>ExecuteShell.dll.zip</name>
+      <exists>-1</exists>
+      <size>6649</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>ExecuteShell.dll.zip</filename>
+    </datafile>
+    <datafile>
+      <name>ExecuteShell.dylib</name>
+      <exists>-1</exists>
+      <size>9068</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>ExecuteShell.dylib</filename>
+    </datafile>
+    <datafile>
+      <name>ExecuteShell.dylib.zip</name>
+      <exists>-1</exists>
+      <size>1224</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>ExecuteShell.dylib.zip</filename>
+    </datafile>
+    <datafile>
+      <name>ExecuteShell.so</name>
+      <exists>-1</exists>
+      <size>5520</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>ExecuteShell.so</filename>
+    </datafile>
+    <datafile>
+      <name>ExecuteShell.so.zip</name>
+      <exists>-1</exists>
+      <size>1224</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>ExecuteShell.so.zip</filename>
+    </datafile>
+    <datafile>
+      <name>example.txt</name>
+      <exists>-1</exists>
+      <size>12</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>example.txt</filename>
+    </datafile>
   </datafiles>
   <NewExtensions>
     <extension index="0">extensions\Input Dog</extension>
@@ -149,6 +268,7 @@
     <extension index="2">extensions\PointerLock</extension>
     <extension index="3">extensions\pathfinding_gms1</extension>
     <extension index="4">extensions\formLESS UI Framework</extension>
+    <extension index="5">extensions\Execute Shell</extension>
   </NewExtensions>
   <sounds name="sound">
     <sounds name="Interface">
@@ -400,19 +520,22 @@
         </scripts>
         <scripts name="Mappa Mundi">
           <scripts name="database">
-            <script>scripts\mm_database_create.gml</script>
-            <script>scripts\mm_database_destroy.gml</script>
-            <script>scripts\mm_database_load_chunk.gml</script>
-            <script>scripts\mm_database_generate_chunk_data.gml</script>
-            <script>scripts\mm_database_create_blueprints.gml</script>
-            <script>scripts\chunk_coords_to_key.gml</script>
-            <scripts name="rand buffer">
-              <script>scripts\rand_array_init.gml</script>
-              <script>scripts\fill_rand_buffer.gml</script>
-              <script>scripts\rand_buffer.gml</script>
+            <scripts name="Internal">
+              <scripts name="rand buffer">
+                <script>scripts\rand_array_init.gml</script>
+                <script>scripts\fill_rand_buffer.gml</script>
+                <script>scripts\rand_buffer.gml</script>
+              </scripts>
+              <script>scripts\mm_database_create.gml</script>
+              <script>scripts\mm_database_destroy.gml</script>
+              <script>scripts\chunk_blueprint_exists.gml</script>
+              <script>scripts\mm_database_generate_chunk_data.gml</script>
+              <script>scripts\mm_database_load_chunk.gml</script>
+              <script>scripts\mm_database_create_blueprints.gml</script>
+              <script>scripts\chunk_coords_to_key.gml</script>
+              <script>scripts\mm_database_save_blueprints.gml</script>
+              <script>scripts\mm_database_blueprints_first_entry.gml</script>
             </scripts>
-            <script>scripts\mm_database_save_blueprints.gml</script>
-            <script>scripts\mm_database_get_chunk_blueprints.gml</script>
           </scripts>
           <scripts name="database debug drawer">
             <script>scripts\mm_database_drawer_create.gml</script>
@@ -1080,6 +1203,9 @@
     <scripts name="Tiles">
       <script>scripts\tileset_create.gml</script>
       <script>scripts\tile_get_bitmask_8.gml</script>
+    </scripts>
+    <scripts name="ExecuteShell">
+      <script>scripts\ExecuteShell.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">

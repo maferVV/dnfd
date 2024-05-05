@@ -1,6 +1,6 @@
 /// mm_database_create()
 /// Create event for the database of world generation
-/// Mappa Mundi - GMS thingy for better procedural generation in dnFd
+/// Mappa Mundi - GMS thingy for better procedural generation in dNfD
 
 /// references
 cam = noone;
@@ -17,7 +17,21 @@ chunks = ds_map_create();
 // A map containing maps (representing chunks)
 //     containing maps (representing instances with unique ids)
 //         containing maps (an attribute:value relationship)
-blueprints = ds_map_create();
+filename = "save_file.json";
+path = working_directory + filename;
+var file = file_text_open_read(path);
+if(file != -1)
+{
+    blueprints = json_decode(file_text_read_string(file));
+    print("Save from disc loaded");
+    file_text_close(file);
+}
+else
+{
+    blueprints = ds_map_create(); // save file didnt exist
+    mm_database_blueprints_first_entry();
+}
+
 /// perlin noise info
 seed = random_range(65536,6553600);
 //DS_MAP with possible script outputs and cooresponding tile numbers. Decoded from JSON string.

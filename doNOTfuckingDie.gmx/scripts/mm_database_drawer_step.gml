@@ -14,12 +14,15 @@ if(instance_exists(cursor) && instance_exists(db) && createWithMouse)
     {
         with(db)
         {
-            if( true /* chunk not on json */ )
+            if( !chunk_blueprint_exists(other.chunk_x, other.chunk_y) )
             {
-                mm_database_load_chunk(other.chunk_x, other.chunk_y);
+                if (!mm_database_load_chunk(other.chunk_x, other.chunk_y))
+                    error("chunk blueprint doesnt exists but the raw perlin data does? wtf????", 0);
                 mm_database_create_blueprints(other.chunk_x, other.chunk_y);
                 mm_database_save_blueprints();
             }
+            else
+                print("Chunk blueprint data already exists. Nothing done.");
             
         }
     }

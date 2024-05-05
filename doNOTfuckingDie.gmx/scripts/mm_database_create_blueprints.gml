@@ -5,9 +5,16 @@
     var chunk_blueprints, chunk, chunkx, chunky, key;
     chunkx = argument0; // chunk x offset
     chunky = argument1; // chunk y offset
-    key = chunk_coords_to_key(string(chunkx), string(chunky));
+    key = chunk_coords_to_key(chunkx, chunky);
     chunk = chunks[? key]
-    chunk_blueprints = mm_database_get_chunk_blueprints(key);
+    chunk_blueprints = blueprints[? key];
+    if( is_undefined(chunk_blueprints) ) // expected outcome
+    {
+        chunk_blueprints = ds_map_create();
+        ds_map_add_map(blueprints, key, chunk_blueprints);
+    }
+    else
+        return error("chunk blueprints already exists", false);
     
     // Numbers for how to create blueprints
     var entity_index = 0;
@@ -109,7 +116,9 @@
                     entity_index++;
                 }
             }
-        }
+        }//for
     
-    }
+    }//for
+    
+    return true;
 }
