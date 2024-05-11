@@ -12,8 +12,7 @@ chunk_x = 0;
 chunk_y = 0;
 chunk_x_in_room = 0;
 chunk_y_in_room = 0;
+tile_size_pixels = 0;
 
-
-// Size of each tile in pixels.
-tile_size_pixels = 8;
+depth = -10000000000;
 

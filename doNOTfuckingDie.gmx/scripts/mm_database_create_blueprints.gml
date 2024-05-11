@@ -4,7 +4,7 @@
 {
     var chunk_blueprints, chunk, chunkx, chunky, key;
     chunkx = argument0; // chunk x offset
-    chunky = argument1; // chunk y offset
+    chunky = argument1; // chunk y offsetchunk_size
     key = mm_chunk_coords_to_key(chunkx, chunky);
     chunk = chunks[? key]
     chunk_blueprints = blueprints[? key];
@@ -17,6 +17,10 @@
         return error("chunk blueprints already exists", false);
     
     // Numbers for how to create blueprints
+    print_vars("chunk_size", self.chunk_size, "tile_size_pixels", self.tile_size_pixels);
+    var chunk_size_pixels = self.tile_size_pixels * chunk_size;
+    var xx = chunkx * chunk_size_pixels; //chunk_x_in_room
+    var yy = chunky * chunk_size_pixels; //chunk_y_in_room
     var entity_index = 0;
     var tile_size_pixels = 8;
     var sea_level = 0.55;
@@ -35,6 +39,8 @@
             var tile_rivers = abs( map_value(rivers_grid[# i,j], 0, 1, -1, 1) );
             var weirdness = weird_grid[# i,j];
             
+            
+            
             if(tile_height < sea_level)
             {
                 // sea
@@ -47,8 +53,8 @@
                 {
                     // mangrove river
                     log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMTile);
-                    log_entity_metadata(chunk_blueprints, entity_index, "x", x+(i*tile_size_pixels)+(tile_size_pixels/2));
-                    log_entity_metadata(chunk_blueprints, entity_index, "y", y+(j*tile_size_pixels)+(tile_size_pixels/2));
+                    log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                    log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
                     log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", spr_water_2dig);
                     log_entity_metadata(chunk_blueprints, entity_index, "image_alpha", 0.6);
                     log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_yellow, c_maroon, 0.5));
@@ -59,26 +65,28 @@
                 {
                     // mangrove land
                     log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMTile);
-                    log_entity_metadata(chunk_blueprints, entity_index, "x", x+(i*tile_size_pixels)+(tile_size_pixels/2));
-                    log_entity_metadata(chunk_blueprints, entity_index, "y", y+(j*tile_size_pixels)+(tile_size_pixels/2));
+                    log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                    log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
                     log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", spr_sand_2dig);
                     log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_white, c_maroon, 0.5));
                     entity_index++;
                     
                     if(weirdness > 0)
                     {
+                        /*
                         log_entity_metadata(chunk_blueprints, entity_index, "obj", objWalkerTreeBase);
-                        log_entity_metadata(chunk_blueprints, entity_index, "x", x+(i*tile_size_pixels)+(tile_size_pixels/2));
-                        log_entity_metadata(chunk_blueprints, entity_index, "y", y+(j*tile_size_pixels)+(tile_size_pixels/2));
+                        log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                        log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
                         entity_index++;
+                        */
                     }
                 }
                 else
                 {
                     // beach sand
                     log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMTile);
-                    log_entity_metadata(chunk_blueprints, entity_index, "x", x+(i*tile_size_pixels)+(tile_size_pixels/2));
-                    log_entity_metadata(chunk_blueprints, entity_index, "y", y+(j*tile_size_pixels)+(tile_size_pixels/2));
+                    log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                    log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
                     log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", spr_sand_2dig);
                     entity_index++;
                     
@@ -91,8 +99,8 @@
                     // forest river
                     // mangrove river
                     log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMTile);
-                    log_entity_metadata(chunk_blueprints, entity_index, "x", x+(i*tile_size_pixels)+(tile_size_pixels/2));
-                    log_entity_metadata(chunk_blueprints, entity_index, "y", y+(j*tile_size_pixels)+(tile_size_pixels/2));
+                    log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                    log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
                     log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", spr_water_2dig);
                     log_entity_metadata(chunk_blueprints, entity_index, "image_alpha", 0.4);
                     log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_blue, c_aqua, 0.5));
@@ -102,8 +110,8 @@
                 {
                     // forest river edge
                     log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMTile);
-                    log_entity_metadata(chunk_blueprints, entity_index, "x", x+(i*tile_size_pixels)+(tile_size_pixels/2));
-                    log_entity_metadata(chunk_blueprints, entity_index, "y", y+(j*tile_size_pixels)+(tile_size_pixels/2));
+                    log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                    log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
                     log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", spr_grass_2dig);
                     log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_white, c_green, 0.25));
                     entity_index++;
@@ -112,8 +120,8 @@
                 {
                     // forest
                     log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMTile);
-                    log_entity_metadata(chunk_blueprints, entity_index, "x", x+(i*tile_size_pixels)+(tile_size_pixels/2));
-                    log_entity_metadata(chunk_blueprints, entity_index, "y", y+(j*tile_size_pixels)+(tile_size_pixels/2));
+                    log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                    log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
                     log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", spr_grass_2dig);
                     entity_index++;
                 }

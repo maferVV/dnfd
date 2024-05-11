@@ -3,6 +3,7 @@
 
 if(instance_exists(cursor) && instance_exists(db) && createWithMouse)
 {
+    tile_size_pixels = db.tile_size_pixels;
     chunk_size_pixels = tile_size_pixels * db.chunk_size;
 
     chunk_x = floor(cursor.x/chunk_size_pixels);
@@ -23,6 +24,7 @@ if(instance_exists(cursor) && instance_exists(db) && createWithMouse)
             }
             else if( is_undefined(instantiator.chunks_entities[? mm_chunk_coords_to_key(other.chunk_x, other.chunk_y)]) )
             {
+                print("Instantiating entities");
                 var cx = other.chunk_x;
                 var cy = other.chunk_y;
                 with(instantiator)

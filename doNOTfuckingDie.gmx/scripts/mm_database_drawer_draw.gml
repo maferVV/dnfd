@@ -16,6 +16,12 @@ for (var k = ds_map_find_first(map); !is_undefined(k); k = ds_map_find_next(map,
                         yy*chunk_size_pixels+chunk_size_pixels,
                         false);
     }
+    
+    // put coords in lower right corner
+    draw_set(1, c_white, fnt_mono, fa_right, fa_bottom);
+    draw_text_outlined(xx*chunk_size_pixels+chunk_size_pixels,
+                        yy*chunk_size_pixels+chunk_size_pixels,
+                        string(xx)+","+string(yy), c_white, c_black);
 }
 
 // chunk under cursor
@@ -33,7 +39,13 @@ if( !is_undefined(chunk_data) ) str+= "Perlin data!!"; else str+= ":c";
 str+="#";
 // Display if chunk is in blueprints
 var chunk_blueprint = map[? mm_chunk_coords_to_key(chunk_x, chunk_y)];
-if( !is_undefined(chunk_blueprint) ) str+= "Blueprints!!"; else str+= ":c";
+if( !is_undefined(chunk_blueprint) )
+{
+    str+= "Blueprints!!";
+    str+= " ("+string(ds_map_size(chunk_blueprint))+")";
+}
+else
+    str+= ":c";
 draw_set(1, c_white, fnt_mono);
 draw_text_outlined(chunk_x_in_room+1, chunk_y_in_room+1, str, c_white, c_black);
 

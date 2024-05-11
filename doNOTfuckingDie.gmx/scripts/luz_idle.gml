@@ -19,7 +19,7 @@ if random(50)<1
 luz_readInputs();
 tmc_dt_step_full();
 
-if(action1)
+/*if(action1)
 {
     with(instance_create(x, y, objDig))
     {
@@ -27,7 +27,7 @@ if(action1)
         follow = other;
         so_whitelist(id, other);
     }
-}
+}*/
 
 if(input_direction != -1)
     state_switch("moving");

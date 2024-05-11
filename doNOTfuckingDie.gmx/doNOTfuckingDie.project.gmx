@@ -503,7 +503,6 @@
           <scripts name="Chunk">
             <script>scripts\add_trawl_chunk.gml</script>
             <script>scripts\trawl_chunk_create_content.gml</script>
-            <script>scripts\log_entity_metadata.gml</script>
             <script>scripts\generate_trawl_chunk.gml</script>
             <script>scripts\chunk_instantiate_entities.gml</script>
             <script>scripts\get_chunk_from_world_coords.gml</script>
@@ -537,6 +536,7 @@
               <script>scripts\mm_database_delete_all_data.gml</script>
               <script>scripts\mm_chunk_coords_to_key.gml</script>
               <script>scripts\mm_key_to_coords.gml</script>
+              <script>scripts\log_entity_metadata.gml</script>
             </scripts>
           </scripts>
           <scripts name="database debug drawer">

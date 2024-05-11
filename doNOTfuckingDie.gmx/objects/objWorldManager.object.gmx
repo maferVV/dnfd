@@ -30,7 +30,7 @@
 depth_max = 1000;
 depth_min = -1000;
 
-instance_singleton(objSeaFloorShader)
+//instance_singleton(objSeaFloorShader)
 </string>
           </argument>
         </arguments>

@@ -15,6 +15,9 @@ drawer.cursor = objCursor;
 /// vars
 // How many tiles width/height?
 chunk_size = 8;
+tile_size_pixels = 8;
+
+print_vars("chunk_size", chunk_size, "tile_size_pixels", tile_size_pixels);
 
 /// Data structures
 // A map containing maps (representing chunks)
