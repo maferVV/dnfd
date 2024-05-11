@@ -12,7 +12,7 @@ if( ds_exists(map, ds_type_map) )
         var v = map[? k];
         /* Use k, v here */
         var vs = string(v);
-        if(ds_exists(v,ds_type_map)) vs = ds_map_to_inline_string(v);
+        //if(ds_exists(v,ds_type_map)) vs = ds_map_to_inline_string(v);
         s += "["+string_lpad(string(k),lpad,"0")+"] "+ vs +"#";
     }
     s += "ds_map ends."+"#"

@@ -4,7 +4,7 @@
 var chunk, xx, yy, key;
 xx = argument0; // chunk x offset
 yy = argument1; // chunk y offset
-key = chunk_coords_to_key(string(xx), string(yy));
+key = mm_chunk_coords_to_key(string(xx), string(yy));
 
 
 if( !ds_map_exists(chunks, key) )

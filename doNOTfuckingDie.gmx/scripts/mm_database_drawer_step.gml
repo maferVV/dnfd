@@ -14,12 +14,21 @@ if(instance_exists(cursor) && instance_exists(db) && createWithMouse)
     {
         with(db)
         {
-            if( !chunk_blueprint_exists(other.chunk_x, other.chunk_y) )
+            if( !mm_chunk_blueprint_exists(other.chunk_x, other.chunk_y) )
             {
                 if (!mm_database_load_chunk(other.chunk_x, other.chunk_y))
                     error("chunk blueprint doesnt exists but the raw perlin data does? wtf????", 0);
                 mm_database_create_blueprints(other.chunk_x, other.chunk_y);
                 mm_database_save_blueprints();
+            }
+            else if( is_undefined(instantiator.chunks_entities[? mm_chunk_coords_to_key(other.chunk_x, other.chunk_y)]) )
+            {
+                var cx = other.chunk_x;
+                var cy = other.chunk_y;
+                with(instantiator)
+                {
+                    mm_instantiator_instantiate_chunk(cx, cy);
+                }
             }
             else
                 print("Chunk blueprint data already exists. Nothing done.");
@@ -30,5 +39,11 @@ if(instance_exists(cursor) && instance_exists(db) && createWithMouse)
     if(mouse_check_button_pressed(mb_right))
     {
         //attempt_delete_chunk(chunk_x, chunk_y);
+    }
+    
+    if( keyboard_check(vk_control) && keyboard_check_pressed(ord("D")) )
+    {
+        with(db){ mm_database_delete_all_data(); }
+        print("Database wiped");
     }
 }

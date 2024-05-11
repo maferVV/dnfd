@@ -112,12 +112,14 @@ sunset_hour = 18;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// chunkManager, world bounds
-
-//chunkManager = instance_create(x, y, objChunkManager);
+            <string>/// Mappa Mundi
 
 db = instance_create(x, y, objMMDatabase);
 db.cam = self.cam;
+
+instantiator = instance_create(x, y, objMMInstantiator);
+instantiator.db = db;
+db.instantiator = self.instantiator;
 
 // world bounds corners
 var worldCenterX = room_width/2;

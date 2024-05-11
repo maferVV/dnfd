@@ -1,6 +1,7 @@
 /// log_entity_destroyed(chunk_x, chunk_y, entityId)
 // Sets a log for destroyed id, whatever maps stores this needs to be 
 // in objChunkManager to keep memory of it once chunk gets destroyed.
+/*
 {
     var chunk_x, chunk_y, entityId;
     chunk_x = argument0;

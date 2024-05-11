@@ -1,6 +1,6 @@
 /// autoload_chunks()
 // returns 0 if succesful in chunk creation
-
+/*
 // count chunk candidates based on camera corner points
 var cam = objCamera;
 if(!instance_exists(cam)) return error("no cam", 1);

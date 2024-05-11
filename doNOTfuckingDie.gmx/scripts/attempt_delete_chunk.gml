@@ -1,6 +1,6 @@
 /// attempt_add_chunk(chunk_x, chunk_y)
 // uses instance map chunks
-{
+/*{
     var chunk_x, chunk_y;
     chunk_x = argument0;
     chunk_y = argument1;

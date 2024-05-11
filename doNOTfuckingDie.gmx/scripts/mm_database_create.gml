@@ -5,6 +5,12 @@
 /// references
 cam = noone;
 drawer = noone;
+instantiator = noone;
+
+// create drawer
+drawer = instance_create(x, y, objMMDatabaseDrawer);
+drawer.db = id;
+drawer.cursor = objCursor;
 
 /// vars
 // How many tiles width/height?
@@ -29,9 +35,7 @@ if(file != -1)
 else
 {
     blueprints = ds_map_create(); // save file didnt exist
-    mm_database_blueprints_first_entry();
 }
-
 /// perlin noise info
 seed = random_range(65536,6553600);
 //DS_MAP with possible script outputs and cooresponding tile numbers. Decoded from JSON string.

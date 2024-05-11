@@ -1,8 +1,10 @@
 /// chunk_apply_entity_deltas
+/*
 {
     // The only relevant delta rn is removal of entity ids,
     // so just loop through the destroyed list and remove 
     // any id present in the metadata_map
+    
     var coords = get_chunk_coords_from_world_coords(x, y);
     var key = chunk_coords_to_key(coords[0], coords[1]);
     var removed_entity_ids_list = ds_map_find_value(myManager.chunks_destroyed_entity_ids, key);

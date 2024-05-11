@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>mm_database_create();
+            <string>mm_instantiator_create();
 </string>
           </argument>
         </arguments>
@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>mm_database_destroy();
+            <string>mm_instantiator_destroy();
 </string>
           </argument>
         </arguments>
