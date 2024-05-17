@@ -40,7 +40,16 @@
             var weirdness = weird_grid[# i,j];
             
             
+            if(tile_height < 0.71)
+            {
+                log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMTile);
+                log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+                log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", spr_sand_2dig);
+                entity_index++;
+            }
             
+            /*
             if(tile_height < sea_level)
             {
                 // sea
@@ -73,12 +82,6 @@
                     
                     if(weirdness > 0)
                     {
-                        /*
-                        log_entity_metadata(chunk_blueprints, entity_index, "obj", objWalkerTreeBase);
-                        log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
-                        log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
-                        entity_index++;
-                        */
                     }
                 }
                 else
@@ -126,6 +129,7 @@
                     entity_index++;
                 }
             }
+            */
         }//for
     
     }//for

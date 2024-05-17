@@ -11,6 +11,8 @@ if(instance_exists(cursor) && instance_exists(db) && createWithMouse)
     chunk_x_in_room = chunk_x * chunk_size_pixels;
     chunk_y_in_room = chunk_y * chunk_size_pixels;
     
+    //print_vars("cursor.x", cursor.x, "cursor.y", cursor.y, "chunk_x", chunk_x, "chunk_y", chunk_y);
+        
     if(mouse_check_button_pressed(mb_left))
     {
         with(db)
@@ -22,9 +24,8 @@ if(instance_exists(cursor) && instance_exists(db) && createWithMouse)
                 mm_database_create_blueprints(other.chunk_x, other.chunk_y);
                 mm_database_save_blueprints();
             }
-            else if( is_undefined(instantiator.chunks_entities[? mm_chunk_coords_to_key(other.chunk_x, other.chunk_y)]) )
+            if( is_undefined(instantiator.chunks_entities[? mm_chunk_coords_to_key(other.chunk_x, other.chunk_y)]) )
             {
-                print("Instantiating entities");
                 var cx = other.chunk_x;
                 var cy = other.chunk_y;
                 with(instantiator)
@@ -32,8 +33,6 @@ if(instance_exists(cursor) && instance_exists(db) && createWithMouse)
                     mm_instantiator_instantiate_chunk(cx, cy);
                 }
             }
-            else
-                print("Chunk blueprint data already exists. Nothing done.");
             
         }
     }

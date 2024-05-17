@@ -151,7 +151,8 @@ bounds_y2 = worldCenterY+room_height/4;
           <argument>
             <kind>1</kind>
             <string>/// create player
-player = instance_create(worldCenterX, worldCenterY, objWillow);
+//player = instance_create(worldCenterX, worldCenterY, objWillow);
+player = instance_create(0, 0, objWillow);
 </string>
           </argument>
         </arguments>
