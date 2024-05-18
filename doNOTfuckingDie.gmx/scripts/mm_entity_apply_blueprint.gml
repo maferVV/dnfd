@@ -16,7 +16,7 @@
             case "sprite_index": sprite_index = real(value); break;
             case "dt_image_speed": dt_image_speed = real(value); break;
             case "dt_image_index": dt_image_index = real(value); break;
-            case "stack_anim_array[0]": stack_anim_array[0] = real(value); break; // for 3d
+            case "debug_string": debug_string = string(value); break;
             //default: error("var for "+type_str+" not found", 0); break;
         }
     }

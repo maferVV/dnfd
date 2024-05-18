@@ -1,4 +1,4 @@
-/// log_entity_metadata(chunk, entityid, type_str, value)
+/// mm_chunk_log_entity_metadata(chunk, entityid, type_str, value)
 // Logs to the metadata regarding a respective id
 // First data to log should be "object"
 //

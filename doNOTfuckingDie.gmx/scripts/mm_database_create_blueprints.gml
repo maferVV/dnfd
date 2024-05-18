@@ -39,13 +39,24 @@
             var tile_rivers = abs( map_value(rivers_grid[# i,j], 0, 1, -1, 1) );
             var weirdness = weird_grid[# i,j];
             
+            var n = terrace_down(tile_height,2/10);
+            var dstr =  "height:"+string(n)
+//                        "index:"+string(entity_index)
+//                        +"#"+"i:"+string(i)+" j:"+string(j)
+//                        +"#"+"x:"+string(xx+(i*tile_size_pixels))+" y:"+string(yy+(j*tile_size_pixels))
+            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugTile);
+            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_white,c_black,n));
+            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "debug_string", dstr);
+            entity_index++;
             
-            if(tile_height < 0.71)
+            if(tile_height < -1)
             {
-                log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMTile);
-                log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
-                log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
-                log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", spr_sand_2dig);
+                mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMTile);
+                mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+                mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", spr_sand_2dig);
                 entity_index++;
             }
             

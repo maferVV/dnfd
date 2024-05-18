@@ -12,19 +12,21 @@ if( !ds_map_exists(chunks, key) )
     // ds_map to be filled with grids
     chunk = ds_map_create();
     rand_array_init(seed, xx, yy);
-    var elevation_grid = mm_database_generate_chunk_data(8,
-                                                            0.666,
-                                                            0.5,
-                                                            1.2042,
-                                                            xx,
-                                                            yy);
-    seed += 666+100*rand_buffer();
-    var rivers_grid = mm_database_generate_chunk_data(4,
+    
+    seed = seed_init;
+    var elevation_grid = mm_database_generate_grid_data(3,
                                                         0.666,
-                                                        0.43,
+                                                        1.5,
                                                         1.2042,
                                                         xx,
                                                         yy);
+    seed += 666+100*rand_buffer();
+    var rivers_grid = mm_database_generate_grid_data(4,
+                                                    0.666,
+                                                    0.43,
+                                                    1.2042,
+                                                    xx,
+                                                    yy);
     var weird_min = 1;
     var weird_max = 4;
     var weird_cells = round(rand_buffer()*(weird_max-weird_min)+weird_min);

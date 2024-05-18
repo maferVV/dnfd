@@ -8,16 +8,17 @@ drawer = noone;
 instantiator = noone;
 
 // create drawer
-drawer = instance_create(x, y, objMMDatabaseDrawer);
-drawer.db = id;
-drawer.cursor = objCursor;
+if(true)
+{
+    drawer = instance_create(x, y, objMMDatabaseDrawer);
+    drawer.db = id;
+    drawer.cursor = objCursor;
+}
 
 /// vars
 // How many tiles width/height?
-chunk_size = 132;
+chunk_size = 16;
 tile_size_pixels = 8;
-
-print_vars("chunk_size", chunk_size, "tile_size_pixels", tile_size_pixels);
 
 /// Data structures
 // A map containing maps (representing chunks)
@@ -40,7 +41,10 @@ else
     blueprints = ds_map_create(); // save file didnt exist
 }
 /// perlin noise info
-seed = random_range(65536,6553600);
+seed_init = floor(random_range(65536,6553600));
+seed = seed_init;
+print("seed: " + string(seed_init));
+print("seed's name: " + speakable_password(6)+" "+speakable_password(4));
 //DS_MAP with possible script outputs and cooresponding tile numbers. Decoded from JSON string.
 //As with all data structures, don't forget to destroy it, to prevent memory leaks.
 tile_map = json_decode(

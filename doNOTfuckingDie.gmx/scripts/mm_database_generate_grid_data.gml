@@ -1,4 +1,4 @@
-/// mm_database_generate_chunk_data(octaves, persistence, wavelength_modifier, lacunarity, xoffset, yoffset)
+/// mm_database_generate_grid_data(octaves, persistence, wavelength_modifier, lacunarity, xoffset, yoffset)
 ///
 /// Uses the following instance vars:
 ///     - seed
@@ -26,12 +26,10 @@ var grid = ds_grid_create(chunk_size, chunk_size);
 
 for(var i = 0; i < chunk_size; i++){
     for(var j = 0; j < chunk_size; j++){
-            
-            // ignore isIsland and isRefined vars
-            
-            var zz = get_perlin(i + (xoffset*chunk_size), j + (yoffset*chunk_size), octaves, persistence, wavelength_modifier, lacunarity, grid);
+            var xx = i + (xoffset*chunk_size);
+            var yy = j + (yoffset*chunk_size);
+            var zz = get_perlin(xx, yy, octaves, persistence, wavelength_modifier, lacunarity, grid);
             grid[# i,j] = zz;
-    
     } //for
 } //for
 

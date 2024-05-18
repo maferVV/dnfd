@@ -23,6 +23,8 @@ if( !ds_map_exists(chunks, key) && chunk_in_range(xx, yy) )
         xoffset = xx;
         yoffset = yy;
         
+        
+        
         seed = other.seed;
         elevation_grid = generate_trawl_chunk(8,
                                             0.666,
@@ -37,14 +39,6 @@ if( !ds_map_exists(chunks, key) && chunk_in_range(xx, yy) )
                                             1.2042,
                                             false,
                                             false);
-        /*seed = other.seed + 10;
-        funkiness_grid = generate_trawl_chunk(4,
-                                            0.3,
-                                            1,
-                                            1.2042,
-                                            false,
-                                            false);
-        */
         
         random_set_seed( hash_function3(seed, xoffset, yoffset) );
         fill_rand_buffer();
