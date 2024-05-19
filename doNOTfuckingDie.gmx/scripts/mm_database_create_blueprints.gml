@@ -17,12 +17,10 @@
         return error("chunk blueprints already exists", false);
     
     // Numbers for how to create blueprints
-    print_vars("chunk_size", self.chunk_size, "tile_size_pixels", self.tile_size_pixels);
     var chunk_size_pixels = self.tile_size_pixels * chunk_size;
     var xx = chunkx * chunk_size_pixels; //chunk_x_in_room
     var yy = chunky * chunk_size_pixels; //chunk_y_in_room
     var entity_index = 0;
-    var tile_size_pixels = 8;
     var sea_level = 0.55;
     var beach_level = 0.65;
     var river_level = 0.049;

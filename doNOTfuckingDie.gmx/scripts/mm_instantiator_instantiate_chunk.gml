@@ -32,6 +32,7 @@
             }
             var entity_index = entity_instance.index;
             ds_map_add(chunk_entities, entity_index, entity_instance);
+            ds_map_add(chunk_entities, "isVisible", false);
         }
     }
 }

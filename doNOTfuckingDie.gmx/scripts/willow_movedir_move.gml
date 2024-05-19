@@ -3,6 +3,7 @@ if(tmc_dt_get_speed() < maxspd)
     tmc_dt_motion_add(movedir, movespd*global.desired_fps);
 else
     tmc_dt_set_speed(maxspd);
+
 tmc_dt_set_direction(movedir);
 draw_angle = movedir;
 

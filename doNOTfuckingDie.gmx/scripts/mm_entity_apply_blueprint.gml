@@ -7,6 +7,7 @@
         var value = entity_blueprints[? type_str];
         switch(type_str)
         {
+            case "obj":
             case "x":
             case "y":
                 //already set in creation event
@@ -17,7 +18,7 @@
             case "dt_image_speed": dt_image_speed = real(value); break;
             case "dt_image_index": dt_image_index = real(value); break;
             case "debug_string": debug_string = string(value); break;
-            //default: error("var for "+type_str+" not found", 0); break;
+            default: error("var for "+string(type_str)+" not found", 0); break;
         }
     }
 }

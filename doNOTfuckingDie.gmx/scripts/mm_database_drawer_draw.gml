@@ -1,10 +1,10 @@
 /// mm_database_drawer_draw()
 
-// highlight chunks that are blueprint ready
-if(false)
+// draw existing chunks
+if(true)
 {
-    var map = db.blueprints;
-    for (var k = ds_map_find_first(map); !is_undefined(k); k = ds_map_find_next(map, k))
+    var blueprints = db.blueprints;
+    for (var k = ds_map_find_first(blueprints); !is_undefined(k); k = ds_map_find_next(blueprints, k))
     {
         var arr = tmc_string_split(k, ",");
         if(arr[0] == 2)
@@ -27,12 +27,15 @@ if(false)
 }
 
 // chunk under cursor
-draw_set(animate_wave(0.2, 0.3, 3), c_white);
-draw_rectangle(chunk_x_in_room,
-                chunk_y_in_room,
-                chunk_x_in_room+chunk_size_pixels,
-                chunk_y_in_room+chunk_size_pixels,
-                false);
+if(false)
+{
+    draw_set(animate_wave(0.2, 0.3, 3), c_white);
+    draw_rectangle(chunk_x_in_room,
+                    chunk_y_in_room,
+                    chunk_x_in_room+chunk_size_pixels,
+                    chunk_y_in_room+chunk_size_pixels,
+                    false);
+}
 
 // Chunk text:
 // Display if chunk is in perlin data 
@@ -43,7 +46,7 @@ if(false)
     if( !is_undefined(chunk_data) ) str+= "Perlin data!!"; else str+= ":c";
     str+="#";
     // Display if chunk is in blueprints
-    var chunk_blueprint = map[? mm_chunk_coords_to_key(chunk_x, chunk_y)];
+    var chunk_blueprint = blueprints[? mm_chunk_coords_to_key(chunk_x, chunk_y)];
     if( !is_undefined(chunk_blueprint) )
     {
         str+= "Blueprints!!";

@@ -6,9 +6,10 @@
 cam = noone;
 drawer = noone;
 instantiator = noone;
+chunk_manager = noone;
 
 // create drawer
-if(true)
+if(false)
 {
     drawer = instance_create(x, y, objMMDatabaseDrawer);
     drawer.db = id;
@@ -17,8 +18,8 @@ if(true)
 
 /// vars
 // How many tiles width/height?
-chunk_size = 16;
-tile_size_pixels = 8;
+chunk_size = 8;
+tile_size_pixels = 16;
 
 /// Data structures
 // A map containing maps (representing chunks)
@@ -27,14 +28,19 @@ chunks = ds_map_create();
 // A map containing maps (representing chunks)
 //     containing maps (representing instances with unique ids)
 //         containing maps (an attribute:value relationship)
-filename = "save_file.json";
-path = working_directory + filename;
-var file = file_text_open_read(path);
-if(file != -1)
+blueprints = noone;
+canLoadSave = false;
+if( canLoadSave )
 {
-    blueprints = json_decode(file_text_read_string(file));
-    print("Save from disc loaded");
-    file_text_close(file);
+    filename = "save_file.json";
+    path = working_directory + filename;
+    var file = file_text_open_read(path);
+    if(file != -1)
+    {
+        blueprints = json_decode(file_text_read_string(file));
+        print("Save from disc loaded");
+        file_text_close(file);
+    }
 }
 else
 {

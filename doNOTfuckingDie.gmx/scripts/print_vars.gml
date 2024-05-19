@@ -6,8 +6,8 @@ if(!is_even(argc)) return error("no even amount of args", -1);
 s = "";
 for(var i = 0; i < argc; i+=2)
 {
-    s += "#" + argument[i] + ": ";
-    s += string(argument[i+1])+".";
+    s += argument[i] + ": ";
+    s += string(argument[i+1])+".#";
 }
 print(s);
 return s;

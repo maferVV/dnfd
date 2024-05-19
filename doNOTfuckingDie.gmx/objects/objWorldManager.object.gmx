@@ -121,6 +121,11 @@ instantiator = instance_create(x, y, objMMInstantiator);
 instantiator.db = db;
 db.instantiator = self.instantiator;
 
+chunk_manager = instance_create(x, y, objMMChunkManager);
+chunk_manager.db = db;
+chunk_manager.cam = self.cam;
+db.chunk_manager = self.chunk_manager;
+
 // world bounds corners
 var worldCenterX = room_width/2;
 var worldCenterY = room_height/2;

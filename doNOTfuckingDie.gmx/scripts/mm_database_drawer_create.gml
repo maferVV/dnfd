@@ -1,6 +1,6 @@
 /// mm_database_drawer_create();
 
-createWithMouse = true;
+createWithMouse = false;
 
 // my db
 db = noone;

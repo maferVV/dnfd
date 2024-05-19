@@ -18,7 +18,7 @@ if( inputdog_pressed("zoom") )
 }
 switch(zoomMode)
 {
-    case 0: var view_zoom_desired = 2.5; break;
+    case 0: var view_zoom_desired = zoom_default; break;
     default:
     case 3: var view_zoom_desired = 0.6; break;
 }
