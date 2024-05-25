@@ -69,7 +69,7 @@ ds_grid_sort(grid, 1, false);
 
 ds_grid_print(grid);
 // derender the farthest n chunks 
-var n = 10;
+var n = floor(h/2);
 var _max = min(h, n);
 for(var i = 0; i < _max; i++)
 {

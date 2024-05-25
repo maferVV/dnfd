@@ -2,7 +2,7 @@
 
 // draw culling corners
 /// draw debug
-if(true)
+if(false)
 {
     draw_set(animate_wave(0.3, 0.5), c_black);
     var w = 2.5;
@@ -25,40 +25,42 @@ if(true)
     // 3. instantiated and visible
 // Assumes all chunks in chunks_entities are also in chunks_visibility
 if( chunks_entities == noone ) return 0;
-var chunk_size_pixels = db.chunk_size * db.tile_size_pixels;
-var x1 = view_xview;
-var y1 = view_yview;
-var x2 = view_xview+view_wview;
-var y2 = view_yview+view_hview;
-for(var xx = floor(x1/chunk_size_pixels); xx < ceil(x2/chunk_size_pixels); xx++)
+if(false)
 {
-    for(var yy = floor(y1/chunk_size_pixels); yy < ceil(y2/chunk_size_pixels); yy++)
+    var chunk_size_pixels = db.chunk_size * db.tile_size_pixels;
+    var x1 = view_xview;
+    var y1 = view_yview;
+    var x2 = view_xview+view_wview;
+    var y2 = view_yview+view_hview;
+    for(var xx = floor(x1/chunk_size_pixels); xx < ceil(x2/chunk_size_pixels); xx++)
     {
-        var key = mm_chunk_coords_to_key(xx, yy);
-        var chunkIsInstantiated = chunks_entities[? key];
-        var chunkIsVisible = chunks_visibility[? key];
-        var color = c_white; var subimg = 0; var alpha = 1;
-        if(!chunkIsInstantiated)
+        for(var yy = floor(y1/chunk_size_pixels); yy < ceil(y2/chunk_size_pixels); yy++)
         {
-            subimg = 1;
-        }
-        else
-        {
-            if( !chunkIsVisible )
+            var key = mm_chunk_coords_to_key(xx, yy);
+            var chunkIsInstantiated = chunks_entities[? key];
+            var chunkIsVisible = chunks_visibility[? key];
+            var color = c_white; var subimg = 0; var alpha = 1;
+            if(!chunkIsInstantiated)
             {
-                subimg = 2;
+                subimg = 1;
             }
             else
             {
-                subimg = 3;
-                alpha = 0.1;
+                if( !chunkIsVisible )
+                {
+                    subimg = 2;
+                }
+                else
+                {
+                    subimg = 3;
+                    alpha = 0.1;
+                }
             }
+            
+            var xx_in_room = xx*chunk_size_pixels;
+            var yy_in_room = yy*chunk_size_pixels;
+            draw_sprite_ext(sprChunkIcons, subimg, xx_in_room+chunk_size_pixels/2, yy_in_room+chunk_size_pixels/2, 1, 1, 0, color, alpha);
         }
-        
-        var xx_in_room = xx*chunk_size_pixels;
-        var yy_in_room = yy*chunk_size_pixels;
-        draw_sprite_ext(sprChunkIcons, subimg, xx_in_room+chunk_size_pixels/2, yy_in_room+chunk_size_pixels/2, 1, 1, 0, color, alpha);
     }
-}
-
+}    
 

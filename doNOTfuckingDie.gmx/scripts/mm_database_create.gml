@@ -2,6 +2,8 @@
 /// Create event for the database of world generation
 /// Mappa Mundi - GMS thingy for better procedural generation in dNfD
 
+randomize();
+
 /// references
 cam = noone;
 drawer = noone;
@@ -20,6 +22,7 @@ if(false)
 // How many tiles width/height?
 chunk_size = 8;
 tile_size_pixels = 16;
+wavelength_size = 1; // proportional resizing of the world
 
 /// Data structures
 // A map containing maps (representing chunks)

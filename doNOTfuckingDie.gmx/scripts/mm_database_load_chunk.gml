@@ -14,21 +14,31 @@ if( !ds_map_exists(chunks, key) )
     rand_array_init(seed, xx, yy);
     
     seed = seed_init;
-    var elevation_grid = mm_database_generate_grid_data(3,
+    var elevation_grid = mm_database_generate_grid_data(8,
                                                         0.666,
-                                                        1.5,
+                                                        0.47*wavelength_size,
                                                         1.2042,
                                                         xx,
                                                         yy);
-    seed += 666+100*rand_buffer();
-    var rivers_grid = mm_database_generate_grid_data(4,
-                                                    0.666,
-                                                    0.43,
-                                                    1.2042,
-                                                    xx,
-                                                    yy);
-    var weird_min = 1;
-    var weird_max = 4;
+    
+    seed += 25165843;
+    var temperature_grid = mm_database_generate_grid_data(4,
+                                                            0.5,
+                                                            0.3*wavelength_size,
+                                                            0.7,
+                                                            xx,
+                                                            yy);
+    
+    seed += 12582917;
+    var precipitation_grid = mm_database_generate_grid_data(3,
+                                                            0.666,
+                                                            1*wavelength_size,
+                                                            1.2042,
+                                                            xx,
+                                                            yy);
+    
+    var weird_min = 5;
+    var weird_max = 10;
     var weird_cells = round(rand_buffer()*(weird_max-weird_min)+weird_min);
     var weird_grid = ds_grid_create(chunk_size, chunk_size);
     for(var i = 0; i < weird_cells; i++)
@@ -36,13 +46,25 @@ if( !ds_map_exists(chunks, key) )
         var xx = floor(rand_buffer() * chunk_size);
         var yy = floor(rand_buffer() * chunk_size);
         
-        weird_grid[# xx, yy] = 1;
+        weird_grid[# xx, yy] = rand_buffer();
     }
+    
+    
+    var rand_grid = ds_grid_create(chunk_size, chunk_size);
+    for(var i = 0; i < chunk_size; i++)
+    {
+        for(var j = 0; j < chunk_size; j++)
+        {
+            rand_grid[# i,j] = rand_buffer();
+        } //for
+    } //for
     
     // adds all grids to the map representing the chunk
     ds_map_add(chunk, "elevation_grid", elevation_grid);
-    ds_map_add(chunk, "rivers_grid", rivers_grid);
+    ds_map_add(chunk, "precipitation_grid", precipitation_grid);
+    ds_map_add(chunk, "temperature_grid", temperature_grid);
     ds_map_add(chunk, "weird_grid", weird_grid);
+    ds_map_add(chunk, "rand_grid", rand_grid);
     ds_map_add_map(chunks, key, chunk);
     return true;
 }

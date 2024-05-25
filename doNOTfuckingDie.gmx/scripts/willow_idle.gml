@@ -22,7 +22,6 @@ depth = -decimal_bbox_bottom();
 willow_readInputs();
 tmc_dt_step_full();
 
-
 if(input_direction != -1)
     state_switch("moving");
 

@@ -16,7 +16,7 @@ chunks_visibility = ds_map_create();
 
 // alarms
 tmc_dt_alarm_init();
-alarm0_cooldown = 1*room_speed;
+alarm0_cooldown = 0.4*room_speed;
 alarm1_cooldown = 3*room_speed;
 dt_alarm[0] = 1;
 dt_alarm[1] = alarm1_cooldown/2;

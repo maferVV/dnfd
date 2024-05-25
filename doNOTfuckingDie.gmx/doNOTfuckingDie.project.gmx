@@ -331,6 +331,7 @@
     </sprites>
     <sprites name="IslandGen2D">
       <sprite>sprites\sprWhite</sprite>
+      <sprite>sprites\sprBox</sprite>
       <sprite>sprites\spr_dirt_2dig</sprite>
       <sprite>sprites\spr_grass_2dig</sprite>
       <sprite>sprites\spr_sand_2dig</sprite>
@@ -391,6 +392,7 @@
       <sprite>sprites\sprWillowIdle</sprite>
       <sprite>sprites\sprWillowIdleBlink</sprite>
       <sprite>sprites\sprWillowRun</sprite>
+      <sprite>sprites\sprWillowStuck</sprite>
       <sprite>sprites\sprWillowMask</sprite>
       <sprite>sprites\sprWillowGun</sprite>
       <sprite>sprites\sprWillowHandsGun</sprite>
@@ -542,6 +544,7 @@
             <script>scripts\mm_database_destroy.gml</script>
             <script>scripts\mm_database_load_chunk.gml</script>
             <script>scripts\mm_database_create_blueprints.gml</script>
+            <script>scripts\determine_biome.gml</script>
           </scripts>
           <scripts name="database debug drawer">
             <script>scripts\mm_database_drawer_create.gml</script>
@@ -613,6 +616,7 @@
               <script>scripts\dt_image_speed_update.gml</script>
               <script>scripts\dt_alarm_update.gml</script>
             </scripts>
+            <script>scripts\tmc_dt_step_unstuck.gml</script>
           </scripts>
         </scripts>
         <scripts name="Systemic Outputs">
@@ -655,6 +659,7 @@
               <scripts name="FSM">
                 <script>scripts\willow_idle.gml</script>
                 <script>scripts\willow_moving.gml</script>
+                <script>scripts\willow_stuck.gml</script>
               </scripts>
               <script>scripts\willow_defaultInputs.gml</script>
               <script>scripts\willow_readInputs.gml</script>
@@ -1305,6 +1310,7 @@
           <objects name="Entities">
             <object>objects\objMMTile</object>
             <object>objects\objMMDebugTile</object>
+            <object>objects\objMMDebugSolid</object>
           </objects>
         </objects>
       </objects>
