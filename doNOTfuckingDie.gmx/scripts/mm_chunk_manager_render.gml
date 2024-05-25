@@ -1,14 +1,9 @@
-/// mm_chunk_manager_render_culling_area()
+/// mm_chunk_manager_render()
+// renders inside culling area
 
-mm_chunk_get_culling_coords();
-
-if( !instance_exists(db) )
-    return 0;
-var instantiator = db.instantiator;
-if( !instance_exists(instantiator) )
-    return 0;
-chunks_entities = instantiator.chunks_entities;
-
+if(!mm_chunk_get_culling_coords())
+    return error("Incomplete references", false);
+    
 // Get chunk coords inside culling area.
 var chunk_size_pixels = db.chunk_size * db.tile_size_pixels;
 var potential_chunks_x = 0; // array
@@ -31,25 +26,33 @@ for(var chunk_i = 0; chunk_i < array_length_1d(potential_chunks_x); chunk_i++)
     var chunk_y = potential_chunks_y[chunk_i];
     var chunk_key = mm_chunk_coords_to_key(chunk_x, chunk_y);
     var chunk_isVisible = false;
-    var chunk_blueprints = chunks_entities[? chunk_key];
-    if( !is_undefined(chunk_blueprints) )
+    var chunk_isActivated = false;
+    var chunk_entities = chunks_entities[? chunk_key];
+    if( !is_undefined(chunk_entities) )
     {
-        var chunk_isVisible = chunk_blueprints[? "isVisible"];
+        chunk_isVisible = chunks_visibility[? chunk_key];
+        chunk_isActivated = chunks_activated[? chunk_key];
     }
     if( !chunk_isVisible )
     {
-        if( is_undefined(chunk_blueprints) )
+        if( !chunk_isActivated )
         {
-            if( is_undefined(db.blueprints[? chunk_key]) )
+            if( is_undefined(chunk_entities) ) // If not instantiated
             {
-                if( is_undefined(db.chunks[? chunk_key]) )
+                if( is_undefined(db.blueprints[? chunk_key]) )
                 {
-                    with(db){ mm_database_load_chunk(chunk_x, chunk_y); }
+                    if( is_undefined(db.chunks[? chunk_key]) )
+                    {
+                        with(db){ mm_database_load_chunk(chunk_x, chunk_y); }
+                    }
+                    with(db){ mm_database_create_blueprints(chunk_x, chunk_y); }
                 }
-                with(db){ mm_database_create_blueprints(chunk_x, chunk_y); }
+                with(instantiator){ mm_instantiator_instantiate_chunk(chunk_x, chunk_y); }
             }
-            with(instantiator){ mm_instantiator_instantiate_chunk(chunk_x, chunk_y); }
+            mm_chunk_manager_set_active(chunk_x, chunk_y, true);
         }
         mm_chunk_manager_set_visible(chunk_x, chunk_y, true);
     }
 }
+
+return true;

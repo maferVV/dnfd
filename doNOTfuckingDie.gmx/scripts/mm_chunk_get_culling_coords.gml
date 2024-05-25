@@ -1,12 +1,13 @@
 /// mm_chunk_get_culling_coords()
+// returns false if references incomplete.
 
 if( !instance_exists(cam) )
-    return 0;
+    return false;
 if( !instance_exists(db) )
-    return 0;
-var instantiator = db.instantiator;
+    return false;
+instantiator = db.instantiator;
 if( !instance_exists(instantiator) )
-    return 0;
+    return false;
 chunks_entities = instantiator.chunks_entities;
 
 // references asserted
@@ -19,3 +20,5 @@ culling_y1 = cam.y-ideal_hview/2*culling_multiplier1;
 
 culling_x4 = cam.x+ideal_wview/2*culling_multiplier1;
 culling_y4 = cam.y+ideal_hview/2*culling_multiplier1;
+
+return true;

@@ -30,6 +30,7 @@ destroy_at_anim_end = false;
 destroy_at_alpha_more_than_1 = false;
 destroy_at_alpha_less_than_0 = false;
 destroy_at_outside_view = false;
+destroy_at_alarm_0 = true;
 move_speed = 0;
 move_direction = 0;
 angle_speed = 0;
@@ -38,6 +39,12 @@ scale_speed = 0;
 color_target = c_white;
 blend_speed = 0;
 text = "";
+can_draw_arrow = 0;
+draw_arrow_x1 = 0;
+draw_arrow_y1 = 0;
+draw_arrow_x2 = 0;
+draw_arrow_y2 = 0;
+draw_arrow_size = 0;
 
 // script to execute before destroyed
 execute_on_destroy = noone;
@@ -105,6 +112,31 @@ if( (execute_on_destroy!=noone)&amp;&amp;script_exists(execute_on_destroy) )
                     execute_args[13],
                     execute_args[14],
                     );
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// destroy condition
+if destroy_at_alarm_0
+    instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -250,6 +282,17 @@ draw_sprite_ext(sprite_index,
                 
 draw_set(1, c_white, fnt_mono);
 draw_text(x, y, text);
+
+if(can_draw_arrow)
+{
+    draw_set(image_alpha, image_blend);
+    draw_arrow(draw_arrow_x1,
+                draw_arrow_y1,
+                draw_arrow_x2,
+                draw_arrow_y2,
+                draw_arrow_size);
+}
+
 draw_set();
 </string>
           </argument>

@@ -18,6 +18,6 @@
         }
     }
     
-    // mark visible
-    ds_map_add(chunk_entities, "isVisible", set_visible);
+    // mark (in)visible
+    ds_map_set(chunks_visibility, chunk_key, set_visible);
 }
