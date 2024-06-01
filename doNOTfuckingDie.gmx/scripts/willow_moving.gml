@@ -1,9 +1,7 @@
 if(state_new)
 {
     tmc_dt_set_friction(fric);
-    sprite_index = sprWillowRun;
-    dt_image_speed = 9/60;
-    dt_image_index = 0;
+    dt_image_speed = 10/60;
 }
 
 var dt = global.tmc_dt_delta_t;
@@ -13,11 +11,45 @@ tmc_dt_step_full();
 
 depth = -decimal_bbox_bottom();
 
+switch(angle_to_cardinal_diagonal(input_direction))
+{
+    case 0:
+    case 4:
+        sprite_index = sprWillowRunSide;
+        sprArm = sprWillowRunSideArms;
+        break;
+    case 2:
+        sprite_index = sprWillowRunBack;
+        sprArm = sprWillowRunBackArms;
+        break;
+    case 1:
+    case 3:
+        sprite_index = sprWillowRunQuarterBack;
+        sprArm = sprWillowRunQuarterBackArms;
+        break;
+    case 5:
+    case 7:
+        sprite_index = sprWillowRunQuarterFront;
+        sprArm = sprWillowRunQuarterFrontArms;
+        break;
+    case 6:
+        sprite_index = sprWillowRunFront;
+        sprArm = sprWillowRunFrontArms;
+        break;
+    
+}
+
 if(input_direction != -1)
 {
     if( place_meeting_3D(x, y, z, collision_object) )
+    {
+        sprArm = noone;
         state_switch("stuck");
+    }
     willow_movedir_move();
 }
 else
+{
+    sprArm = noone;
     state_switch("idle");
+}

@@ -279,6 +279,14 @@
     <sound>sound\bmMeddle</sound>
     <sound>sound\sndCompleteJingleXS</sound>
     <sound>sound\sndSwing</sound>
+    <sounds name="slams slaps">
+      <sound>sound\sndSlam1</sound>
+      <sound>sound\sndSlam2</sound>
+      <sound>sound\sndSlam3</sound>
+      <sound>sound\sndSlam4</sound>
+      <sound>sound\sndSlam5</sound>
+      <sound>sound\sndSlap1</sound>
+    </sounds>
     <sound>sound\sndJump</sound>
     <sound>sound\sndIronPunch</sound>
     <sound>sound\ZZZ_last_sound</sound>
@@ -389,16 +397,32 @@
       <sprite>sprites\sprTilesetMort</sprite>
     </sprites>
     <sprites name="player">
-      <sprite>sprites\sprWillowIdle</sprite>
-      <sprite>sprites\sprWillowIdleBlink</sprite>
-      <sprite>sprites\sprWillowRun</sprite>
-      <sprite>sprites\sprWillowStuck</sprite>
-      <sprite>sprites\sprWillowMask</sprite>
       <sprite>sprites\sprWillowGun</sprite>
       <sprite>sprites\sprWillowHandsGun</sprite>
+      <sprites name="Willow overworld">
+        <sprite>sprites\sprWillowMask</sprite>
+        <sprite>sprites\sprWillowIdle</sprite>
+        <sprite>sprites\sprWillowIdleBlink</sprite>
+        <sprite>sprites\sprWillowStuck</sprite>
+        <sprites name="willow run arms">
+          <sprite>sprites\sprWillowRunFrontArms</sprite>
+          <sprite>sprites\sprWillowRunSideArms</sprite>
+          <sprite>sprites\sprWillowRunQuarterFrontArms</sprite>
+          <sprite>sprites\sprWillowRunQuarterBackArms</sprite>
+          <sprite>sprites\sprWillowRunBackArms</sprite>
+        </sprites>
+        <sprites name="willow run">
+          <sprite>sprites\sprWillowRunFront</sprite>
+          <sprite>sprites\sprWillowRunBack</sprite>
+          <sprite>sprites\sprWillowRunQuarterFront</sprite>
+          <sprite>sprites\sprWillowRunQuarterBack</sprite>
+          <sprite>sprites\sprWillowRunSide</sprite>
+        </sprites>
+      </sprites>
     </sprites>
     <sprite>sprites\sprChunkIcons</sprite>
     <sprite>sprites\sprCam</sprite>
+    <sprite>sprites\sprite89</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -452,6 +476,16 @@
           <script>scripts\is_mobile.gml</script>
           <script>scripts\os_browser_string.gml</script>
           <script>scripts\os_type_string.gml</script>
+        </scripts>
+        <scripts name="Game Manager events">
+          <script>scripts\game_manager_create.gml</script>
+          <script>scripts\game_manager_step.gml</script>
+          <script>scripts\game_manager_draw_gui.gml</script>
+          <script>scripts\game_manager_destroy.gml</script>
+          <script>scripts\game_manager_alarm_0.gml</script>
+          <script>scripts\game_manager_begin_step.gml</script>
+          <script>scripts\game_manager_room_begin.gml</script>
+          <script>scripts\game_manager_room_end.gml</script>
         </scripts>
       </scripts>
       <scripts name="Display">
@@ -667,6 +701,14 @@
               <script>scripts\scrWillowIdleBlinkEnd.gml</script>
             </scripts>
             <script>scripts\willow_draw.gml</script>
+            <script>scripts\willow_alarm_0.gml</script>
+            <script>scripts\willow_destroy.gml</script>
+            <scripts name="inventory">
+              <script>scripts\inventory_create_item.gml</script>
+              <script>scripts\inventory_load.gml</script>
+            </scripts>
+            <script>scripts\willow_give_control.gml</script>
+            <script>scripts\willow_withdraw_control.gml</script>
           </scripts>
           <scripts name="Bat Enemy">
             <scripts name="FSM">
@@ -686,6 +728,26 @@
             <script>scripts\boat_readInputs.gml</script>
             <script>scripts\boat_defaultInputs.gml</script>
           </scripts>
+        </scripts>
+      </scripts>
+      <scripts name="World Manager">
+        <script>scripts\world_manager_create.gml</script>
+        <script>scripts\world_manager_alarm_0.gml</script>
+        <script>scripts\world_manager_step.gml</script>
+      </scripts>
+      <scripts name="GUI">
+        <scripts name="player_interface">
+          <scripts name="fsm">
+            <script>scripts\player_interface_disabled.gml</script>
+            <script>scripts\player_interface_inventory.gml</script>
+          </scripts>
+          <script>scripts\player_interface_create.gml</script>
+          <script>scripts\player_interface_destroy.gml</script>
+          <script>scripts\player_interface_step.gml</script>
+          <script>scripts\player_interface_draw_gui.gml</script>
+          <script>scripts\player_interface_end_step.gml</script>
+          <script>scripts\player_interface_read_inputs.gml</script>
+          <script>scripts\item_name_to_sprite.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -818,6 +880,7 @@
         <script>scripts\instance_destroy_in_list.gml</script>
         <script>scripts\mouse_over.gml</script>
         <script>scripts\set_scale.gml</script>
+        <script>scripts\set_scale_to_size.gml</script>
         <script>scripts\warp_inside_room.gml</script>
         <script>scripts\set_sprite_size.gml</script>
       </scripts>
@@ -846,6 +909,7 @@
         <scripts name="Angles">
           <script>scripts\angle_normalize.gml</script>
           <script>scripts\angle_approach.gml</script>
+          <script>scripts\angle_to_cardinal_diagonal.gml</script>
           <script>scripts\angle_to_cardinal.gml</script>
           <script>scripts\angle_to_left_right.gml</script>
           <script>scripts\angle_reflect_y.gml</script>
@@ -1352,6 +1416,9 @@
         <object>objects\sprClockBody</object>
         <object>objects\objRocks</object>
         <object>objects\objSegment</object>
+      </objects>
+      <objects name="GUI">
+        <object>objects\objPlayerInterface</object>
       </objects>
     </objects>
     <objects name="Debug">

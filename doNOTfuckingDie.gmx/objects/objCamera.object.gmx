@@ -31,7 +31,7 @@ view_zoom = 1;
 view_max_zoom = 10;
 
 zoomMode = 0;
-zoom_default = 2.5;
+zoom_default = 4;
 
 ideal_wview = view_wview;
 ideal_hview = view_hview;

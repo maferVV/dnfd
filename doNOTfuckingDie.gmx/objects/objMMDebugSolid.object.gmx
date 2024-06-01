@@ -36,6 +36,8 @@ strshow = "";
 
 drawx = 0;
 drawy = 0;
+
+set_scale_to_size(objMMDatabase.tile_size_pixels);
 </string>
           </argument>
         </arguments>

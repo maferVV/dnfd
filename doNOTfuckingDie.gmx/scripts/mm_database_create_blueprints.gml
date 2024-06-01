@@ -88,7 +88,7 @@
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "debug_string", "Manglar Beach");
                         entity_index++;
                     }
-                    else if(elevation < 0.7)   // Mud
+                    else if(elevation < 0.4)   // Mud
                     {
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugTile);
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
@@ -97,15 +97,47 @@
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "debug_string", "Manglar Muddy Forest");
                         entity_index++;
                     }
-                    else                        // Solid forest
+                    else if(elevation < 0.55)   // Solid forest
                     {
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugTile);
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
-                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_green, c_dkgray, 0.7));
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_white, c_green, 0.7));
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "debug_string", "Manglar Solid Forest");
                         entity_index++;
                         if(solid_forest_roll)
+                        {
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugSolid);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+                            entity_index++;
+                        }
+                    }
+                    else if(elevation < 0.59)   // Hidden Grotto Edge
+                    {
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugTile);
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_green, c_dkgray, 0.8));
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "debug_string", "Manglar Hidden Grotto Edge");
+                        entity_index++;
+                        if(rand_val < 0.99)
+                        {
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugSolid);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+                            entity_index++;
+                        }
+                    }
+                    else                        // Hidden Grotto
+                    {
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugTile);
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_green, c_dkgray, 0.5));
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "debug_string", "Manglar Hidden Grotto");
+                        entity_index++;
+                        if(rand_val < 0.3)
                         {
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugSolid);
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
@@ -140,7 +172,7 @@
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugTile);
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
-                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_white, c_green, 0.7));
+                        mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_white, c_green, 0.6));
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "debug_string", "Forest Grass");
                         entity_index++;
                     }
