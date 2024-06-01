@@ -406,10 +406,10 @@
         <sprite>sprites\sprWillowStuck</sprite>
         <sprites name="willow run arms">
           <sprite>sprites\sprWillowRunFrontArms</sprite>
-          <sprite>sprites\sprWillowRunSideArms</sprite>
+          <sprite>sprites\sprWillowRunBackArms</sprite>
           <sprite>sprites\sprWillowRunQuarterFrontArms</sprite>
           <sprite>sprites\sprWillowRunQuarterBackArms</sprite>
-          <sprite>sprites\sprWillowRunBackArms</sprite>
+          <sprite>sprites\sprWillowRunSideArms</sprite>
         </sprites>
         <sprites name="willow run">
           <sprite>sprites\sprWillowRunFront</sprite>
