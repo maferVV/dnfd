@@ -1,5 +1,5 @@
-/// cursor_set(lock?, subimg, size, visible?)
-/// returns to default if empty
+/// cursor_set([lock=false], [subimg], [size], [visible=true])
+/// sets cursor to default if empty
 
 {
     var _cursor, _lock, _subimg, _size, _visible;

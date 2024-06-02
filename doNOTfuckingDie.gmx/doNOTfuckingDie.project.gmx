@@ -422,7 +422,10 @@
     </sprites>
     <sprite>sprites\sprChunkIcons</sprite>
     <sprite>sprites\sprCam</sprite>
-    <sprite>sprites\sprite89</sprite>
+    <sprite>sprites\sprBackpackHUD</sprite>
+    <sprite>sprites\sprBackpackHitboxHUD</sprite>
+    <sprite>sprites\sprItemPebble</sprite>
+    <sprite>sprites\sprItemStick</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -515,8 +518,15 @@
         </scripts>
       </scripts>
       <scripts name="Cursor">
-        <script>scripts\cursor_set_color.gml</script>
-        <script>scripts\cursor_set.gml</script>
+        <scripts name="external">
+          <script>scripts\cursor_set.gml</script>
+          <script>scripts\cursor_set_color.gml</script>
+        </scripts>
+        <script>scripts\cursor_create.gml</script>
+        <script>scripts\cursor_destroy.gml</script>
+        <script>scripts\cursor_step.gml</script>
+        <script>scripts\cursor_draw.gml</script>
+        <script>scripts\cursor_draw_gui_end.gml</script>
       </scripts>
       <scripts name="Highscore">
         <script>scripts\sendScore.gml</script>
@@ -594,6 +604,38 @@
             <script>scripts\mm_entity_create.gml</script>
             <script>scripts\mm_entity_callback.gml</script>
             <script>scripts\mm_entity_apply_blueprint.gml</script>
+            <scripts name="Willow">
+              <script>scripts\willow_create.gml</script>
+              <scripts name="step event">
+                <scripts name="FSM">
+                  <script>scripts\willow_idle.gml</script>
+                  <script>scripts\willow_moving.gml</script>
+                  <script>scripts\willow_stuck.gml</script>
+                </scripts>
+                <script>scripts\willow_defaultInputs.gml</script>
+                <script>scripts\willow_readInputs.gml</script>
+                <script>scripts\willow_movedir_move.gml</script>
+                <script>scripts\scrWillowIdleBlinkEnd.gml</script>
+              </scripts>
+              <script>scripts\willow_draw.gml</script>
+              <script>scripts\willow_alarm_0.gml</script>
+              <script>scripts\willow_destroy.gml</script>
+              <scripts name="inventory">
+                <script>scripts\inventory_create_item.gml</script>
+                <script>scripts\inventory_load.gml</script>
+              </scripts>
+              <script>scripts\willow_give_control.gml</script>
+              <script>scripts\willow_withdraw_control.gml</script>
+            </scripts>
+            <scripts name="Systemic Outputs">
+              <script>scripts\so_whitelist.gml</script>
+              <script>scripts\so_sound_after_create.gml</script>
+            </scripts>
+            <scripts name="Overworld Item">
+              <script>scripts\item_create.gml</script>
+              <script>scripts\item_step.gml</script>
+              <script>scripts\item_draw.gml</script>
+            </scripts>
           </scripts>
           <scripts name="ChunkEntityManager">
             <scripts name="internal">
@@ -651,11 +693,8 @@
               <script>scripts\dt_alarm_update.gml</script>
             </scripts>
             <script>scripts\tmc_dt_step_unstuck.gml</script>
+            <script>scripts\tmc_dt_step_push_away.gml</script>
           </scripts>
-        </scripts>
-        <scripts name="Systemic Outputs">
-          <script>scripts\so_whitelist.gml</script>
-          <script>scripts\so_sound_after_create.gml</script>
         </scripts>
         <scripts name="Entities and Things">
           <scripts name="Player Examples">
@@ -687,29 +726,6 @@
               </scripts>
             </scripts>
           </scripts>
-          <scripts name="Willow">
-            <script>scripts\willow_create.gml</script>
-            <scripts name="step event">
-              <scripts name="FSM">
-                <script>scripts\willow_idle.gml</script>
-                <script>scripts\willow_moving.gml</script>
-                <script>scripts\willow_stuck.gml</script>
-              </scripts>
-              <script>scripts\willow_defaultInputs.gml</script>
-              <script>scripts\willow_readInputs.gml</script>
-              <script>scripts\willow_movedir_move.gml</script>
-              <script>scripts\scrWillowIdleBlinkEnd.gml</script>
-            </scripts>
-            <script>scripts\willow_draw.gml</script>
-            <script>scripts\willow_alarm_0.gml</script>
-            <script>scripts\willow_destroy.gml</script>
-            <scripts name="inventory">
-              <script>scripts\inventory_create_item.gml</script>
-              <script>scripts\inventory_load.gml</script>
-            </scripts>
-            <script>scripts\willow_give_control.gml</script>
-            <script>scripts\willow_withdraw_control.gml</script>
-          </scripts>
           <scripts name="Bat Enemy">
             <scripts name="FSM">
               <script>scripts\bat_attack.gml</script>
@@ -737,9 +753,14 @@
       </scripts>
       <scripts name="GUI">
         <scripts name="player_interface">
+          <scripts name="internal">
+            <script>scripts\player_interface_manage_cursor.gml</script>
+          </scripts>
           <scripts name="fsm">
-            <script>scripts\player_interface_disabled.gml</script>
             <script>scripts\player_interface_inventory.gml</script>
+            <script>scripts\player_interface_to_inventory.gml</script>
+            <script>scripts\player_interface_disabled.gml</script>
+            <script>scripts\player_interface_to_disabled.gml</script>
           </scripts>
           <script>scripts\player_interface_create.gml</script>
           <script>scripts\player_interface_destroy.gml</script>
@@ -748,6 +769,17 @@
           <script>scripts\player_interface_end_step.gml</script>
           <script>scripts\player_interface_read_inputs.gml</script>
           <script>scripts\item_name_to_sprite.gml</script>
+        </scripts>
+        <scripts name="interface item">
+          <script>scripts\interface_item_create.gml</script>
+          <script>scripts\interface_item_destroy.gml</script>
+          <script>scripts\interface_item_step.gml</script>
+          <script>scripts\interface_item_begin_step.gml</script>
+          <script>scripts\interface_item_draw_gui.gml</script>
+          <scripts name="external">
+            <script>scripts\interface_item_appear.gml</script>
+            <script>scripts\interface_item_put_away.gml</script>
+          </scripts>
         </scripts>
       </scripts>
     </scripts>
@@ -780,6 +812,7 @@
         <script>scripts\collision_pie_list.gml</script>
         <script>scripts\instance_place_list.gml</script>
         <script>scripts\collision_line_point.gml</script>
+        <script>scripts\collision_point_list.gml</script>
       </scripts>
       <scripts name="Colors">
         <script>scripts\color_scale.gml</script>
@@ -1372,53 +1405,58 @@
           <object>objects\objMMInstantiator</object>
           <object>objects\objMMChunkManager</object>
           <objects name="Entities">
+            <object>objects\objMMEntityParent</object>
             <object>objects\objMMTile</object>
             <object>objects\objMMDebugTile</object>
             <object>objects\objMMDebugSolid</object>
+            <objects name="Physics">
+              <object>objects\objMovementEntityParent</object>
+              <object>objects\objSolidParent</object>
+              <objects name="Item">
+                <object>objects\objOverworldItem</object>
+              </objects>
+              <objects name="Player">
+                <object>objects\objPlayerParent</object>
+                <object>objects\objWillow</object>
+              </objects>
+              <objects name="Systemic outputs">
+                <object>objects\objSystemicOutputParent</object>
+                <object>objects\objForce</object>
+                <object>objects\objDamage</object>
+                <object>objects\objSound</object>
+                <object>objects\objDig</object>
+              </objects>
+              <objects name="Organisms">
+                <object>objects\objOrganismParent</object>
+                <objects name="legacy shit">
+                  <objects name="Top Down">
+                    <object>objects\objDan</object>
+                    <object>objects\objCar</object>
+                  </objects>
+                  <objects name="2D">
+                    <object>objects\objCatHero</object>
+                    <object>objects\objBat</object>
+                    <object>objects\objLevelManager_2Dexample</object>
+                    <object>objects\objMortBlock</object>
+                  </objects>
+                  <object>objects\objSegment</object>
+                  <object>objects\objSeaFloorShader</object>
+                  <object>objects\objWaterColor</object>
+                  <object>objects\objSolidStackable</object>
+                  <object>objects\objWalkerTreeBase</object>
+                  <object>objects\objWalkerTreeBranch</object>
+                  <object>objects\objHouse</object>
+                  <object>objects\sprClockBody</object>
+                  <object>objects\objRocks</object>
+                </objects>
+              </objects>
+            </objects>
           </objects>
         </objects>
-      </objects>
-      <objects name="Physics">
-        <objects name="Parents">
-          <object>objects\objSolidStackable</object>
-          <object>objects\objSolidParent</object>
-          <object>objects\objPlayerParent</object>
-          <object>objects\objMovementEntityParent</object>
-        </objects>
-        <objects name="Systemic outputs">
-          <object>objects\objSystemicOutputParent</object>
-          <object>objects\objForce</object>
-          <object>objects\objDamage</object>
-          <object>objects\objSound</object>
-          <object>objects\objDig</object>
-        </objects>
-        <objects name="Examples">
-          <objects name="Top Down">
-            <object>objects\objDan</object>
-            <object>objects\objCar</object>
-          </objects>
-          <objects name="2D">
-            <object>objects\objCatHero</object>
-            <object>objects\objBat</object>
-            <object>objects\objLevelManager_2Dexample</object>
-            <object>objects\objMortBlock</object>
-          </objects>
-        </objects>
-        <object>objects\objWillow</object>
-      </objects>
-      <objects name="Entities and Things">
-        <object>objects\objSeaFloorShader</object>
-        <object>objects\objWaterColor</object>
-        <object>objects\objOrganism</object>
-        <object>objects\objHouse</object>
-        <object>objects\objWalkerTreeBranch</object>
-        <object>objects\objWalkerTreeBase</object>
-        <object>objects\sprClockBody</object>
-        <object>objects\objRocks</object>
-        <object>objects\objSegment</object>
       </objects>
       <objects name="GUI">
         <object>objects\objPlayerInterface</object>
+        <object>objects\objPlayerInterfaceItem</object>
       </objects>
     </objects>
     <objects name="Debug">

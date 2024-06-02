@@ -37,7 +37,7 @@ for(var k = ds_map_find_first(chunks_activated); !is_undefined(k); k = ds_map_fi
     }
 }
 
-array_print(managed_chunks_keys);
+//array_print(managed_chunks_keys);
 
 if(list_index <= 0) return 0;
 
@@ -67,7 +67,6 @@ for(var i = 0; i < h; i++)
 // sort based on distance column
 ds_grid_sort(grid, 1, false);
 
-ds_grid_print(grid);
 // derender the farthest n chunks 
 var n = floor(h/2);
 var _max = min(h, n);

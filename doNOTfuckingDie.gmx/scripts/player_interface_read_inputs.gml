@@ -1,2 +1,5 @@
 /// player_interface_read_inputs()
-inventory_pressed = inputdog_pressed("inventory", playerSlot);
+if(!objGameManager.paused) 
+{
+    inventory_pressed = inputdog_pressed("inventory", playerSlot);
+}

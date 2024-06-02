@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objMMTile</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -35,6 +35,8 @@ drawx = 0;
 drawy = 0;
 
 set_scale_to_size(objMMDatabase.tile_size_pixels);
+
+debug = false &amp;&amp; global.debug;
 </string>
           </argument>
         </arguments>
@@ -91,9 +93,12 @@ drawy = arr[1];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set(1, c_white, fnt_mono_mini);
-draw_text_outlined( drawx, drawy, strshow, c_black, c_white);
-draw_set();
+            <string>if(debug)
+{
+    draw_set(1, c_white, fnt_mono_mini);
+    draw_text_outlined( drawx, drawy, strshow, c_black, c_white);
+    draw_set();
+}
 </string>
           </argument>
         </arguments>

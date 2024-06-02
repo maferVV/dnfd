@@ -52,8 +52,6 @@ else
 /// perlin noise info
 seed_init = floor(random_range(65536,6553600));
 seed = seed_init;
-print("seed: " + string(seed_init));
-print("seed's name: " + speakable_password(6)+" "+speakable_password(4));
 //DS_MAP with possible script outputs and cooresponding tile numbers. Decoded from JSON string.
 //As with all data structures, don't forget to destroy it, to prevent memory leaks.
 tile_map = json_decode(

@@ -3,7 +3,7 @@
     var str = argument0;
     switch(str)
     {
-        default:
-            return sprCoral;
+        case "pebble": return sprItemPebble; break;
+        case "stick": return sprItemStick; break;
     }
 }

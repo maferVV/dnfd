@@ -6,9 +6,12 @@ sprArm = noone;
 inventory = inventory_load();
 
 // add random bs to inventory
-inventory_create_item(inventory, "foo", 0);
-inventory_create_item(inventory, "bar", 1);
-inventory_create_item(inventory, "pee", 1);
+var d = 16;
+inventory_create_item(inventory, "pebble", random_range(-d,d), random_range(-d,d));
+inventory_create_item(inventory, "pebble", random_range(-d,d), random_range(-d,d));
+inventory_create_item(inventory, "stick", random_range(-d,d), random_range(-d,d));
+inventory_create_item(inventory, "stick", random_range(-d,d), random_range(-d,d));
+inventory_create_item(inventory, "stick", random_range(-d,d), random_range(-d,d));
 
 inventory_manager = instance_create(x, y, objPlayerInterface);
 inventory_manager.player = self.id;
