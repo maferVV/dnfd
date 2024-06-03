@@ -26,9 +26,17 @@ else
 /// Manage outside inventory space
 if( !position_meeting(x-player_interface.backpack_xoffset,
                         y-player_interface.backpack_yoffset,
-                        player_interface) )
-    angle_offset += 10*global.delta_step;
+                        player_interface))
+{
+    if(player_interface.cursor_hold == id)
+    {
+        // not dropped yet
+        image_alpha = 0.5;
+    }
+    else
+        interface_item_drop(); 
+}
 else
-    angle_offset = 0;
+    image_alpha = 1;
 
 tmc_dt_step_full();

@@ -12,6 +12,8 @@ switch(ORD)
     case vk_alt: return nat("alt"); break;
     case vk_enter: return nat("enter"); break;
     case vk_escape: return nat("esc"); break;
+    case vk_tab: return nat("tab"); break;
+    case mb_left: return nat("l_mouse"); break;
     
     case vk_decimal: return nat("."); break;
     case vk_delete: return nat("delete"); break;

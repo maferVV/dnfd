@@ -22,12 +22,13 @@ if(state_new)
 
 yoffset_anim_index += global.delta_step;
 yoffset_anim_index = clamp(yoffset_anim_index, 0, yoffset_anim_max);
-var curve = EaseOutBounce(yoffset_anim_index, 0, 1, yoffset_anim_max);
+var curve = EaseInOutQuint(yoffset_anim_index, 0, 1, yoffset_anim_max);
 backpack_yoffset = map_value(curve, 0, 1, backpack_yoffset_enabled, backpack_yoffset_disabled); 
 
 if( yoffset_anim_index==yoffset_anim_max )
     state_switch("disabled");
     
 player_interface_read_inputs();
+player_interface_snapback_scale();
 if(inventory_pressed)
     state_switch("toInventory");

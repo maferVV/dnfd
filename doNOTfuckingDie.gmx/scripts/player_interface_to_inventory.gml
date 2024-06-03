@@ -20,5 +20,6 @@ if(yoffset_anim_index == yoffset_anim_max)
     state_switch("inventory");
     
 player_interface_read_inputs();
+player_interface_snapback_scale();
 if(inventory_pressed)
     state_switch("toDisabled");

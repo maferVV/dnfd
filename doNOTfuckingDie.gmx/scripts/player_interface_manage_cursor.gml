@@ -21,7 +21,7 @@ if( instance_exists(cursor) )
     ds_list_destroy(nearest_list);
     
     // Hold an item
-    if( (cursor_hold==noone) && (cursor_hover!=noone) && mouse_check_button_pressed(mb_left) )
+    if( !instance_exists(cursor_hold) && instance_exists(cursor_hover) && mouse_check_button_pressed(mb_left) )
     {
         cursor_hold = cursor_hover;
         cursor_xoffset = cursor_hold.x-cursor.GUIx;
@@ -29,7 +29,7 @@ if( instance_exists(cursor) )
     }
     
     // Drag item
-    if( (cursor_hold!=noone) )
+    if( instance_exists(cursor_hold) )
     {
         cursor_hold.x = cursor.GUIx + cursor_xoffset;
         cursor_hold.y = cursor.GUIy - cursor_yoffset;

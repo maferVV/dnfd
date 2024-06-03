@@ -31,6 +31,10 @@ destroy_at_alpha_more_than_1 = false;
 destroy_at_alpha_less_than_0 = false;
 destroy_at_outside_view = false;
 destroy_at_alarm_0 = true;
+destroy_at_distance_from_point = false;
+destroy_at_distance_from_point_x = 0;
+destroy_at_distance_from_point_y = 0;
+destroy_at_distance_from_point_min_distance = 0;
 move_speed = 0;
 move_direction = 0;
 angle_speed = 0;
@@ -39,12 +43,18 @@ scale_speed = 0;
 color_target = c_white;
 blend_speed = 0;
 text = "";
+draw_regular = true;
 can_draw_arrow = 0;
 draw_arrow_x1 = 0;
 draw_arrow_y1 = 0;
 draw_arrow_x2 = 0;
 draw_arrow_y2 = 0;
 draw_arrow_size = 0;
+draw_gui = false;
+
+// internal
+GUIx = 0;
+GUIy = 0;
 
 // script to execute before destroyed
 execute_on_destroy = noone;
@@ -252,6 +262,59 @@ if destroy_at_anim_end
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// GUI Drawing
+
+if(!draw_gui) exit;
+
+set_drawgui_coords();
+
+draw_sprite_ext(sprite_index,
+                dt_image_index,
+                GUIx,
+                GUIy,
+                image_xscale,
+                image_yscale,
+                image_angle,
+                image_blend,
+                image_alpha);
+                
+draw_set(1, c_white, fnt_mono);
+draw_text(GUIx, GUIx, text);
+
+if(can_draw_arrow)
+{
+    
+    draw_set(image_alpha, image_blend);
+    draw_arrow( room_to_drawgui_x(draw_arrow_x1, draw_arrow_y1),
+                room_to_drawgui_y(draw_arrow_x1, draw_arrow_y1),
+                room_to_drawgui_x(draw_arrow_x2, draw_arrow_y2),
+                room_to_drawgui_y(draw_arrow_x2, draw_arrow_y2),
+                draw_arrow_size);
+}
+
+draw_set();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -270,6 +333,9 @@ if destroy_at_anim_end
           <argument>
             <kind>1</kind>
             <string>/// Drawing
+
+if(!draw_regular) exit;
+
 draw_sprite_ext(sprite_index,
                 dt_image_index,
                 x,

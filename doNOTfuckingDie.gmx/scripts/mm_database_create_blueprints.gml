@@ -112,6 +112,22 @@
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
                             entity_index++;
                         }
+                        else if(rand_val < 0.55)
+                        {
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objOverworldItem);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "item_name", "pebble");
+                            entity_index++;
+                        }
+                        else if(rand_val < 0.60)
+                        {
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objOverworldItem);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "item_name", "stick");
+                            entity_index++;
+                        }
                     }
                     else if(elevation < 0.59)   // Hidden Grotto Edge
                     {
@@ -189,6 +205,22 @@
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugSolid);
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+                            entity_index++;
+                        }
+                        else if(rand_val < 0.55)
+                        {
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objOverworldItem);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "item_name", "pebble");
+                            entity_index++;
+                        }
+                        else if(rand_val < 0.60)
+                        {
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objOverworldItem);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "item_name", "stick");
                             entity_index++;
                         }
                     }

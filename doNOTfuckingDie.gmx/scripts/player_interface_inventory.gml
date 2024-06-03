@@ -17,5 +17,6 @@ if(state_new)
 
 player_interface_manage_cursor();
 player_interface_read_inputs();
+player_interface_snapback_scale();
 if(inventory_pressed)
     state_switch("toDisabled");

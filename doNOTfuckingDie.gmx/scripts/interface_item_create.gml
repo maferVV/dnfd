@@ -1,6 +1,7 @@
 // refs
 player_interface = noone; //my player interface
 inventory_item = noone; //map
+db = noone;
 
 // vars 
 index = 0; // my unique id

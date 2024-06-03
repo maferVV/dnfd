@@ -18,6 +18,7 @@
             case "dt_image_speed": dt_image_speed = real(value); break;
             case "dt_image_index": dt_image_index = real(value); break;
             case "debug_string": debug_string = string(value); break;
+            case "item_name": item_name = string(value); break;
             default: error("var for "+string(type_str)+" not found", 0); break;
         }
     }

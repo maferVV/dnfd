@@ -20,7 +20,7 @@ depth = -decimal_bbox_bottom();
 // d is the 360 direction of the inputs
 willow_readInputs();
 tmc_dt_step_full();
-
+willow_item_interaction();
 
 if(input_direction != -1)
     state_switch("moving");

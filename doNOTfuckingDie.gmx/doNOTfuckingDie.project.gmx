@@ -599,42 +599,61 @@
             <script>scripts\mm_instantiator_create.gml</script>
             <script>scripts\mm_instantiator_instantiate_chunk.gml</script>
             <script>scripts\mm_instantiator_destroy.gml</script>
+            <script>scripts\mm_instantiator_instantiate_entity.gml</script>
           </scripts>
           <scripts name="Entity">
             <script>scripts\mm_entity_create.gml</script>
+            <script>scripts\mm_entity_destroy.gml</script>
             <script>scripts\mm_entity_callback.gml</script>
             <script>scripts\mm_entity_apply_blueprint.gml</script>
             <scripts name="Willow">
-              <script>scripts\willow_create.gml</script>
-              <scripts name="step event">
-                <scripts name="FSM">
-                  <script>scripts\willow_idle.gml</script>
-                  <script>scripts\willow_moving.gml</script>
-                  <script>scripts\willow_stuck.gml</script>
+              <scripts name="FSM">
+                <script>scripts\willow_idle.gml</script>
+                <script>scripts\willow_moving.gml</script>
+                <script>scripts\willow_stuck.gml</script>
+              </scripts>
+              <scripts name="internal">
+                <scripts name="inventory">
+                  <script>scripts\inventory_create_item.gml</script>
+                  <script>scripts\inventory_load.gml</script>
                 </scripts>
                 <script>scripts\willow_defaultInputs.gml</script>
                 <script>scripts\willow_readInputs.gml</script>
                 <script>scripts\willow_movedir_move.gml</script>
                 <script>scripts\scrWillowIdleBlinkEnd.gml</script>
+                <script>scripts\willow_set_running_sprite.gml</script>
+                <script>scripts\willow_item_interaction.gml</script>
               </scripts>
+              <scripts name="external">
+                <script>scripts\willow_give_control.gml</script>
+                <script>scripts\willow_withdraw_control.gml</script>
+              </scripts>
+              <script>scripts\willow_create.gml</script>
               <script>scripts\willow_draw.gml</script>
               <script>scripts\willow_alarm_0.gml</script>
               <script>scripts\willow_destroy.gml</script>
-              <scripts name="inventory">
-                <script>scripts\inventory_create_item.gml</script>
-                <script>scripts\inventory_load.gml</script>
-              </scripts>
-              <script>scripts\willow_give_control.gml</script>
-              <script>scripts\willow_withdraw_control.gml</script>
             </scripts>
             <scripts name="Systemic Outputs">
               <script>scripts\so_whitelist.gml</script>
               <script>scripts\so_sound_after_create.gml</script>
             </scripts>
             <scripts name="Overworld Item">
+              <scripts name="internal">
+                <script>scripts\item_pickup_animation.gml</script>
+                <script>scripts\item_toss_anim.gml</script>
+              </scripts>
               <script>scripts\item_create.gml</script>
               <script>scripts\item_step.gml</script>
               <script>scripts\item_draw.gml</script>
+              <script>scripts\item_draw_gui.gml</script>
+              <scripts name="external">
+                <script>scripts\item_pick_up.gml</script>
+              </scripts>
+            </scripts>
+            <scripts name="item pickup particle">
+              <script>scripts\item_pickup_p_create.gml</script>
+              <script>scripts\item_pickup_p_step.gml</script>
+              <script>scripts\item_pickup_p_draw_gui.gml</script>
             </scripts>
           </scripts>
           <scripts name="ChunkEntityManager">
@@ -697,6 +716,24 @@
           </scripts>
         </scripts>
         <scripts name="Entities and Things">
+          <scripts name="Bat Enemy">
+            <scripts name="FSM">
+              <script>scripts\bat_attack.gml</script>
+              <script>scripts\bat_pursue.gml</script>
+              <script>scripts\bat_idle.gml</script>
+              <script>scripts\bat_die.gml</script>
+            </scripts>
+            <script>scripts\bat_animEnd.gml</script>
+          </scripts>
+          <scripts name="boat behavior">
+            <scripts name="FSM">
+              <script>scripts\boat_idle.gml</script>
+              <script>scripts\boat_moving.gml</script>
+            </scripts>
+            <script>scripts\boat_rope_behavior.gml</script>
+            <script>scripts\boat_readInputs.gml</script>
+            <script>scripts\boat_defaultInputs.gml</script>
+          </scripts>
           <scripts name="Player Examples">
             <scripts name="Top Down Player">
               <scripts name="FSM">
@@ -726,24 +763,6 @@
               </scripts>
             </scripts>
           </scripts>
-          <scripts name="Bat Enemy">
-            <scripts name="FSM">
-              <script>scripts\bat_attack.gml</script>
-              <script>scripts\bat_pursue.gml</script>
-              <script>scripts\bat_idle.gml</script>
-              <script>scripts\bat_die.gml</script>
-            </scripts>
-            <script>scripts\bat_animEnd.gml</script>
-          </scripts>
-          <scripts name="boat behavior">
-            <scripts name="FSM">
-              <script>scripts\boat_idle.gml</script>
-              <script>scripts\boat_moving.gml</script>
-            </scripts>
-            <script>scripts\boat_rope_behavior.gml</script>
-            <script>scripts\boat_readInputs.gml</script>
-            <script>scripts\boat_defaultInputs.gml</script>
-          </scripts>
         </scripts>
       </scripts>
       <scripts name="World Manager">
@@ -755,6 +774,7 @@
         <scripts name="player_interface">
           <scripts name="internal">
             <script>scripts\player_interface_manage_cursor.gml</script>
+            <script>scripts\player_interface_snapback_scale.gml</script>
           </scripts>
           <scripts name="fsm">
             <script>scripts\player_interface_inventory.gml</script>
@@ -769,8 +789,14 @@
           <script>scripts\player_interface_end_step.gml</script>
           <script>scripts\player_interface_read_inputs.gml</script>
           <script>scripts\item_name_to_sprite.gml</script>
+          <scripts name="external">
+            <script>scripts\make_inventory_bounce.gml</script>
+          </scripts>
         </scripts>
         <scripts name="interface item">
+          <scripts name="internal">
+            <script>scripts\interface_item_find_db.gml</script>
+          </scripts>
           <script>scripts\interface_item_create.gml</script>
           <script>scripts\interface_item_destroy.gml</script>
           <script>scripts\interface_item_step.gml</script>
@@ -779,6 +805,7 @@
           <scripts name="external">
             <script>scripts\interface_item_appear.gml</script>
             <script>scripts\interface_item_put_away.gml</script>
+            <script>scripts\interface_item_drop.gml</script>
           </scripts>
         </scripts>
       </scripts>
@@ -847,6 +874,7 @@
           <script>scripts\room_to_drawgui_x.gml</script>
           <script>scripts\room_to_drawgui_y.gml</script>
           <script>scripts\set_drawgui_coords.gml</script>
+          <script>scripts\drawgui_to_room.gml</script>
           <script>scripts\set_room_coords.gml</script>
         </scripts>
         <script>scripts\draw_set.gml</script>
@@ -1414,6 +1442,7 @@
               <object>objects\objSolidParent</object>
               <objects name="Item">
                 <object>objects\objOverworldItem</object>
+                <object>objects\objItemPickupParticle</object>
               </objects>
               <objects name="Player">
                 <object>objects\objPlayerParent</object>

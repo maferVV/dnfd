@@ -13,6 +13,7 @@ if(state_new)
     
 }
 
+player_interface_snapback_scale();
 player_interface_read_inputs();
 if(inventory_pressed)
     state_switch("toInventory");

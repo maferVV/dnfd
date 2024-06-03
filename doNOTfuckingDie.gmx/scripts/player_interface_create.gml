@@ -15,6 +15,10 @@ backpack_xoffset = 0;
 backpack_yoffset = 0;
 backpack_yoffset_disabled = 0;
 backpack_yoffset_enabled = 0;
+backpack_xscale_bounce = 0;
+backpack_yscale_bounce = 0;
+
+
 
 depth = -20;
 
