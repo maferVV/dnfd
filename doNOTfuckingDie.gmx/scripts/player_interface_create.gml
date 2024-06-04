@@ -11,6 +11,7 @@ fg_alpha = 0;
 fg_color = c_white;
 inventory_pressed = false;
 
+// inventory
 backpack_xoffset = 0;
 backpack_yoffset = 0;
 backpack_yoffset_disabled = 0;
@@ -18,7 +19,13 @@ backpack_yoffset_enabled = 0;
 backpack_xscale_bounce = 0;
 backpack_yscale_bounce = 0;
 
-
+// roll check
+draw_roll_check = false;
+roll_xoffset = 0;
+roll_yoffset = 0;
+roll_number = 7;
+check_red = merge_colour(c_red, c_orange, 0.6);
+check_green = merge_colour(c_lime, c_teal, 0.4);
 
 depth = -20;
 
@@ -35,5 +42,8 @@ state_create("disabled", player_interface_disabled);
 state_create("inventory", player_interface_inventory);
 state_create("toDisabled", player_interface_to_disabled);
 state_create("toInventory", player_interface_to_inventory);
+state_create("ToDiceCheck", player_interface_to_dice_check);
+state_create("diceCheck", player_interface_dice_check);
 
-state_init("disabled");
+state_init("ToDiceCheck");
+//state_init("disabled");

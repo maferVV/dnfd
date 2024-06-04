@@ -12,14 +12,5 @@ if( instance_exists(item) && !collision_line(x, decimal_bbox_bottom(), item.x, i
         {
             item_pick_up(other.id);
         }
-        else
-            text = "press ["+string(key)+"] to pick up";
-    }
-}
-else
-{
-    with(objOverworldItem)
-    {
-        text = "";
     }
 }

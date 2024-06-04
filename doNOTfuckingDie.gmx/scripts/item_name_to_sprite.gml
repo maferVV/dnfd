@@ -5,5 +5,6 @@
     {
         case "pebble": return sprItemPebble; break;
         case "stick": return sprItemStick; break;
+        case "sword": return sprItemSword; break;
     }
 }

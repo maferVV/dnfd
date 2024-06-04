@@ -340,6 +340,8 @@
     <sprites name="IslandGen2D">
       <sprite>sprites\sprWhite</sprite>
       <sprite>sprites\sprBox</sprite>
+      <sprite>sprites\sprBranchMedium</sprite>
+      <sprite>sprites\sprBranchSmall</sprite>
       <sprite>sprites\spr_dirt_2dig</sprite>
       <sprite>sprites\spr_grass_2dig</sprite>
       <sprite>sprites\spr_sand_2dig</sprite>
@@ -424,8 +426,10 @@
     <sprite>sprites\sprCam</sprite>
     <sprite>sprites\sprBackpackHUD</sprite>
     <sprite>sprites\sprBackpackHitboxHUD</sprite>
+    <sprite>sprites\sprRollHUD</sprite>
     <sprite>sprites\sprItemPebble</sprite>
     <sprite>sprites\sprItemStick</sprite>
+    <sprite>sprites\sprItemSword</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -775,12 +779,15 @@
           <scripts name="internal">
             <script>scripts\player_interface_manage_cursor.gml</script>
             <script>scripts\player_interface_snapback_scale.gml</script>
+            <script>scripts\player_interface_adjust_scale.gml</script>
           </scripts>
           <scripts name="fsm">
             <script>scripts\player_interface_inventory.gml</script>
             <script>scripts\player_interface_to_inventory.gml</script>
             <script>scripts\player_interface_disabled.gml</script>
             <script>scripts\player_interface_to_disabled.gml</script>
+            <script>scripts\player_interface_to_dice_check.gml</script>
+            <script>scripts\player_interface_dice_check.gml</script>
           </scripts>
           <script>scripts\player_interface_create.gml</script>
           <script>scripts\player_interface_destroy.gml</script>
