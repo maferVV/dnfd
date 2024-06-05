@@ -294,6 +294,7 @@
   <sprites name="sprites">
     <sprites name="9Slice">
       <sprite>sprites\s9Slice</sprite>
+      <sprite>sprites\sprLlave9s</sprite>
     </sprites>
     <sprites name="Box2D">
       <sprite>sprites\s_rope</sprite>
@@ -427,9 +428,12 @@
     <sprite>sprites\sprBackpackHUD</sprite>
     <sprite>sprites\sprBackpackHitboxHUD</sprite>
     <sprite>sprites\sprRollHUD</sprite>
+    <sprite>sprites\sprRollHUD2</sprite>
     <sprite>sprites\sprItemPebble</sprite>
     <sprite>sprites\sprItemStick</sprite>
     <sprite>sprites\sprItemSword</sprite>
+    <sprite>sprites\sprDiceFace</sprite>
+    <sprite>sprites\sprDiceValue</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -780,6 +784,11 @@
             <script>scripts\player_interface_manage_cursor.gml</script>
             <script>scripts\player_interface_snapback_scale.gml</script>
             <script>scripts\player_interface_adjust_scale.gml</script>
+            <script>scripts\player_interface_draw_dice_check.gml</script>
+            <script>scripts\player_interface_draw_backpack.gml</script>
+            <script>scripts\player_interface_draw_background.gml</script>
+            <script>scripts\num_to_percentage_2d6.gml</script>
+            <script>scripts\player_interface_set_draw_vars.gml</script>
           </scripts>
           <scripts name="fsm">
             <script>scripts\player_interface_inventory.gml</script>
@@ -814,6 +823,11 @@
             <script>scripts\interface_item_put_away.gml</script>
             <script>scripts\interface_item_drop.gml</script>
           </scripts>
+        </scripts>
+        <scripts name="interface dice">
+          <script>scripts\dice_create.gml</script>
+          <script>scripts\dice_step.gml</script>
+          <script>scripts\dice_draw_gui.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -1493,6 +1507,7 @@
       <objects name="GUI">
         <object>objects\objPlayerInterface</object>
         <object>objects\objPlayerInterfaceItem</object>
+        <object>objects\objInterfaceDice</object>
       </objects>
     </objects>
     <objects name="Debug">

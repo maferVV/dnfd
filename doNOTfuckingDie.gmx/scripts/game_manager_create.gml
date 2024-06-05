@@ -5,6 +5,7 @@
 show_debug_message("Created Game Manager");
 
 /// debug
+canPause = true;
 global.debug = true;
 show_debug_overlay(true&&global.debug);
 

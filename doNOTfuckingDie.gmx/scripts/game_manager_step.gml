@@ -2,7 +2,7 @@
 
 /// Pause pressed
 
-var pauseInput = inputdog_pressed("pause");
+var pauseInput = inputdog_pressed("pause") && canPause;
 
 if(pauseInput)
 {

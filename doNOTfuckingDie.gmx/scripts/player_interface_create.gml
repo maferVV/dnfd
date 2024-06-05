@@ -10,6 +10,8 @@ playerSlot = 1;
 fg_alpha = 0;
 fg_color = c_white;
 inventory_pressed = false;
+guiw = display_get_gui_width();
+guih = display_get_gui_height();
 
 // inventory
 backpack_xoffset = 0;
@@ -21,11 +23,19 @@ backpack_yscale_bounce = 0;
 
 // roll check
 draw_roll_check = false;
-roll_xoffset = 0;
-roll_yoffset = 0;
-roll_number = 7;
+check_number = 7; //2-12
+check_name = "Remove Obstacle";
+roll_scale_modifier = 0.5; // size compared to backpack
+roll_xoffset = 0; roll_yoffset = 0;
+roll_xscale = 0; roll_yscale = 0;
+roll_width = 0; roll_height = 0;
 check_red = merge_colour(c_red, c_orange, 0.6);
 check_green = merge_colour(c_lime, c_teal, 0.4);
+dice_scale_modifier = 2;
+dice_xoffset = 0; dice_yoffset = 0;
+dice_xscale = 0; dice_yscale = 0;
+dice_width = 0; dice_height = 0;
+player_interface_set_draw_vars();
 
 depth = -20;
 
