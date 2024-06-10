@@ -30,7 +30,7 @@
 alpha = 0.7;
 image_blend = c_black;
 
-depth = -y -5;
+set_depth( -y -20 );
 debug_string = "";
 strshow = "";
 

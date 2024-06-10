@@ -34,7 +34,6 @@
             var rand_grid = chunk[? "rand_grid"];
             var rand_val = rand_grid[# i,j];
             var biome = determine_biome(precipitation, temperature);
-            var solid_forest_roll = (rand_val < 0.5);
             
             if(false) //debuging
             {
@@ -105,14 +104,24 @@
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_white, c_green, 0.7));
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "debug_string", "Manglar Solid Forest");
                         entity_index++;
-                        if(solid_forest_roll)
+                        if(rand_val < 0.3)
                         {
-                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugSolid);
-                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
-                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objObstacle);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "roll_check", 7);
                             entity_index++;
                         }
                         else if(rand_val < 0.55)
+                        {
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objObstacle);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", choose(sprObstacleSmall1, sprObstacleSmall2 ));
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "roll_check", 9);
+                            entity_index++;
+                        }
+                        else if(rand_val < 0.58)
                         {
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objOverworldItem);
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
@@ -120,7 +129,7 @@
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "item_name", "pebble");
                             entity_index++;
                         }
-                        else if(rand_val < 0.60)
+                        else if(rand_val < 0.59)
                         {
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objOverworldItem);
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
@@ -200,14 +209,24 @@
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "image_blend", merge_colour(c_white, c_green, 0.7));
                         mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "debug_string", "Solid Forest");
                         entity_index++;
-                        if(solid_forest_roll)
+                        if(rand_val < 0.3)
                         {
-                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objMMDebugSolid);
-                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels));
-                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels));
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objObstacle);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "roll_check", 7);
                             entity_index++;
                         }
                         else if(rand_val < 0.55)
+                        {
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objObstacle);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "y", yy+(j*tile_size_pixels)+tile_size_pixels/2);
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "sprite_index", choose(sprObstacleSmall1, sprObstacleSmall2 ));
+                            mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "roll_check", 9);
+                            entity_index++;
+                        }
+                        else if(rand_val < 0.58)
                         {
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objOverworldItem);
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);
@@ -215,7 +234,7 @@
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "item_name", "pebble");
                             entity_index++;
                         }
-                        else if(rand_val < 0.60)
+                        else if(rand_val < 0.59)
                         {
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "obj", objOverworldItem);
                             mm_chunk_log_entity_metadata(chunk_blueprints, entity_index, "x", xx+(i*tile_size_pixels)+tile_size_pixels/2);

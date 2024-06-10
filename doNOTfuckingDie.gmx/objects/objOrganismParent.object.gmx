@@ -25,30 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// All organisms have inputs and outputs 
-
-event_inherited();
-billboard_create();
-
-// draw underwater
-depthoffset = lerp(objWorldManager.sea.depth, objWorldManager.seafloor.depth, 0.5);
-
-// navigation
-path = path_add();
-
+            <string>event_inherited();
 // vision
 vision_radius = 50;
 vision_apperture_angle = 150;
 vision_look_angle = 0;
-
 // hearing
 hearing_radius = 75;
-
 // needs
 hunger_max = 100;
 hunger_min = 0
 hunger = hunger_min;
-
 // life properties
 age_max = 100;
 age_min = 0;
@@ -56,101 +43,7 @@ age = age_min;
 hp_max = 100;
 hp_min = 0;
 hp = hp_max;
-
-debug = true&amp;&amp;global.debug;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// path delete
-path_delete(path); 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// temp create path to player
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// draw debug
-billboard_draw();
-if(debug)
-{
-    // print depth
-    //print_vars("objTrawlWorldManager.sea.depth", objTrawlWorldManager.sea.depth,"depth", depth,"objTrawlWorldManager.seafloor.depth", objTrawlWorldManager.seafloor.depth);
-    
-    // draw data
-    var x1 = x - vision_radius;
-    var y1 = y - vision_radius;
-    var x2 = x + vision_radius;
-    var y2 = y + vision_radius;
-    var len = vision_radius;
-    var dir = vision_look_angle;
-    var x3 = x + lengthdir_x(len, dir - vision_apperture_angle/2);
-    var y3 = y + lengthdir_y(len, dir - vision_apperture_angle/2);
-    var x4 = x + lengthdir_x(len, dir + vision_apperture_angle/2);
-    var y4 = y + lengthdir_y(len, dir + vision_apperture_angle/2);
-    draw_set(0.3, c_yellow);
-    draw_circle(x, y, hearing_radius, false);
-    draw_set(0.3, c_lime);
-    draw_pie(x1,y1,x2,y2,x3,y3,x4,y4,0,24);
-    draw_set();
-}
+debug = false&amp;&amp;global.debug;
 </string>
           </argument>
         </arguments>

@@ -1,5 +1,5 @@
 ///willow_create()
-
+event_inherited();
 /// Properties
 // references
 sprArm = noone;
@@ -13,12 +13,14 @@ inventory_create_item(inventory, "sword");
 // doginput
 isPlayerControlled = false;
 playerSlot = 1;
-// items
-item_pickup_radius = 10;
+// interact
+interact_radius = 10;
+interact_aperture = 45;
 //movement
 movespd = 0.1; //current spd
-maxspd = 100;
+maxspd = 68;
 movedir = 0;
+facedir = 0; //eyes
 dirspd = 0.1;
 fric = 0;
 idlefric = 5;
@@ -40,5 +42,6 @@ state_machine_init();
 state_create("idle", willow_idle);
 state_create("moving", willow_moving);
 state_create("stuck", willow_stuck);
+state_create("flop", willow_flop);
 
 state_init("idle");

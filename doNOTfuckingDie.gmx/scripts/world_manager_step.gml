@@ -37,7 +37,7 @@ if(curHour != prevHour)
     }
     
     // Change color palette
-    var strength_desired_set, lut_subimg_desired_set;
+    
     var min_night_dark = 0.3;
     var max_night_dark = 1;
     var mid_night_dark = lerp(min_night_dark, max_night_dark, 0.666);
@@ -88,12 +88,7 @@ if(curHour != prevHour)
             break;
     }
     // apply
-    with( objDisplayManager )
-    {
-        strength_desired = strength_desired_set;
-        lut_subimg_desired = lut_subimg_desired_set;
-        //state_switch("start");
-    }
+    world_manager_apply_lut();
 }
 
 prevHour = curHour;

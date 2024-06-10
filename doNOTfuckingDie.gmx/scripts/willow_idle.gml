@@ -15,12 +15,12 @@ if random(50)<1
     sprite_index = sprWillowIdleBlink;
 }   
 
-depth = -decimal_bbox_bottom();
+set_depth();
 
 // d is the 360 direction of the inputs
 willow_readInputs();
 tmc_dt_step_full();
-willow_item_interaction();
+willow_manage_interaction();
 
 if(input_direction != -1)
     state_switch("moving");

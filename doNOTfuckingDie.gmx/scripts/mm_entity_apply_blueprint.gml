@@ -19,6 +19,8 @@
             case "dt_image_index": dt_image_index = real(value); break;
             case "debug_string": debug_string = string(value); break;
             case "item_name": item_name = string(value); break;
+            case "is_destroyed": is_destroyed = value; break;
+            case "roll_check": roll_check = value; break;
             default: error("var for "+string(type_str)+" not found", 0); break;
         }
     }

@@ -2,6 +2,6 @@
 tmc_dt_step_push_away(objOverworldItem);
 
 tmc_dt_step_full();
-depth = -decimal_bbox_bottom();
+set_depth();
 
 item_toss_anim();

@@ -22,9 +22,12 @@ backpack_xscale_bounce = 0;
 backpack_yscale_bounce = 0;
 
 // roll check
-draw_roll_check = false;
+can_skip_check = true;
 check_number = 7; //2-12
-check_name = "Remove Obstacle";
+check_name = "Remove dick cheese";
+player_interface_default_roll_scripts()
+draw_dice_info = false;
+draw_dice_roll = false;
 roll_scale_modifier = 0.5; // size compared to backpack
 roll_xoffset = 0; roll_yoffset = 0;
 roll_xscale = 0; roll_yscale = 0;
@@ -52,8 +55,10 @@ state_create("disabled", player_interface_disabled);
 state_create("inventory", player_interface_inventory);
 state_create("toDisabled", player_interface_to_disabled);
 state_create("toInventory", player_interface_to_inventory);
-state_create("ToDiceCheck", player_interface_to_dice_check);
+state_create("toDiceCheck", player_interface_to_dice_check);
 state_create("diceCheck", player_interface_dice_check);
+state_create("diceCheckThrow", player_interface_dice_check_throw);
+state_create("diceCheckFinish", player_interface_dice_check_finish);
 
-state_init("ToDiceCheck");
+state_init("disabled");
 //state_init("disabled");

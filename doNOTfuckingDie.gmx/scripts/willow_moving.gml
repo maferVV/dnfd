@@ -9,11 +9,11 @@ var dt = global.tmc_dt_delta_t;
 willow_readInputs();
 tmc_dt_step_full();
 
-depth = -decimal_bbox_bottom();
+set_depth();
 
 willow_set_running_sprite();
 
-willow_item_interaction();
+willow_manage_interaction();
 
 if(input_direction != -1)
 {

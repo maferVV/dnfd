@@ -1,0 +1,24 @@
+if(is_hover)
+{
+    draw_sprite_outlined(sprite_index,
+                         dt_image_index,
+                         x,
+                         y,
+                         image_xscale,
+                         image_yscale,
+                         image_angle,
+                         image_blend,
+                         c_white);
+}
+else
+{
+    draw_sprite_ext(sprite_index,
+                    dt_image_index,
+                    x,
+                    y,
+                    image_xscale, 
+                    image_yscale, 
+                    image_angle,
+                    image_blend, 
+                    image_alpha);
+}

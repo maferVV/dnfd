@@ -26,8 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-
-depth = -y
 debug_string = "";
 strshow = "";
 

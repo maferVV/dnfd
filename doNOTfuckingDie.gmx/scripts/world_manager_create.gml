@@ -7,6 +7,8 @@ objSeaFloorShader.vx1 = -10000;
 objSeaFloorShader.vy1 = -10000;
 objSeaFloorShader.vx2 = 10000;
 objSeaFloorShader.vy2 = 10000;
+strength_desired_set = 0;
+lut_subimg_desired_set = 0;
 
 /// set camera and player focus
 cam = objCamera;

@@ -1,4 +1,4 @@
-switch(angle_to_cardinal_diagonal(input_direction))
+switch(angle_to_cardinal_diagonal(facedir))
 {
     case 0:
     case 4:

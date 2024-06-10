@@ -24,10 +24,8 @@ roll_title = string(check_name) + " - Roll "
 roll_title_x = roll_xoffset + roll_width/2;
 roll_title_y = roll_yoffset - string_height(roll_title) - (w_pad*2);
 
-var temp = inputdog_find_inputmanager_child_by_player(1);
-var keyInteract = inputdog_get_keyboard_string(ds_map_find_value(temp.customKeys,"interact"));
-var keyPause = inputdog_get_keyboard_string(ds_map_find_value(temp.customKeys,"pause"));
-dice_text = "Press ["+nat(keyInteract)+"] to stop this roll."
-            +"#"+"Press ["+nat(keyPause)+"] to exit this check."
+
+dice_text = "Press ["+nat(inputdog_get_key_of_input(1,"interact"))+"] to throw the dice."
+            +"#"+"Press ["+nat(inputdog_get_key_of_input(1,"pause"))+"] to exit this check."
 dice_text_x = dice_xoffset;
 dice_text_y = dice_yoffset + dice_height;

@@ -5,6 +5,6 @@ else
     tmc_dt_set_speed(maxspd);
 
 tmc_dt_set_direction(movedir);
-draw_angle = movedir;
+facedir = lerp_angle(facedir, movedir, 0.3);
 
 image_xscale = abs(image_xscale) * angle_to_left_right(input_direction);

@@ -341,8 +341,6 @@
     <sprites name="IslandGen2D">
       <sprite>sprites\sprWhite</sprite>
       <sprite>sprites\sprBox</sprite>
-      <sprite>sprites\sprBranchMedium</sprite>
-      <sprite>sprites\sprBranchSmall</sprite>
       <sprite>sprites\spr_dirt_2dig</sprite>
       <sprite>sprites\spr_grass_2dig</sprite>
       <sprite>sprites\spr_sand_2dig</sprite>
@@ -434,6 +432,9 @@
     <sprite>sprites\sprItemSword</sprite>
     <sprite>sprites\sprDiceFace</sprite>
     <sprite>sprites\sprDiceValue</sprite>
+    <sprite>sprites\sprObstacleSmall1</sprite>
+    <sprite>sprites\sprObstacleSmall2</sprite>
+    <sprite>sprites\sprObstacleMedium1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -613,12 +614,15 @@
             <script>scripts\mm_entity_create.gml</script>
             <script>scripts\mm_entity_destroy.gml</script>
             <script>scripts\mm_entity_callback.gml</script>
+            <script>scripts\mm_entity_interact.gml</script>
             <script>scripts\mm_entity_apply_blueprint.gml</script>
+            <script>scripts\set_depth.gml</script>
             <scripts name="Willow">
               <scripts name="FSM">
                 <script>scripts\willow_idle.gml</script>
                 <script>scripts\willow_moving.gml</script>
                 <script>scripts\willow_stuck.gml</script>
+                <script>scripts\willow_flop.gml</script>
               </scripts>
               <scripts name="internal">
                 <scripts name="inventory">
@@ -630,7 +634,7 @@
                 <script>scripts\willow_movedir_move.gml</script>
                 <script>scripts\scrWillowIdleBlinkEnd.gml</script>
                 <script>scripts\willow_set_running_sprite.gml</script>
-                <script>scripts\willow_item_interaction.gml</script>
+                <script>scripts\willow_manage_interaction.gml</script>
               </scripts>
               <scripts name="external">
                 <script>scripts\willow_give_control.gml</script>
@@ -662,6 +666,16 @@
               <script>scripts\item_pickup_p_create.gml</script>
               <script>scripts\item_pickup_p_step.gml</script>
               <script>scripts\item_pickup_p_draw_gui.gml</script>
+            </scripts>
+            <scripts name="organism obstacle">
+              <script>scripts\obstacle_create.gml</script>
+              <script>scripts\obstacle_destroy.gml</script>
+              <script>scripts\obstacle_alarm_0.gml</script>
+              <scripts name="external">
+                <script>scripts\obstacle_interact.gml</script>
+                <script>scripts\obstacle_set_ravaged.gml</script>
+              </scripts>
+              <script>scripts\obstacle_draw.gml</script>
             </scripts>
           </scripts>
           <scripts name="ChunkEntityManager">
@@ -775,8 +789,9 @@
       </scripts>
       <scripts name="World Manager">
         <script>scripts\world_manager_create.gml</script>
-        <script>scripts\world_manager_alarm_0.gml</script>
         <script>scripts\world_manager_step.gml</script>
+        <script>scripts\world_manager_alarm_0.gml</script>
+        <script>scripts\world_manager_apply_lut.gml</script>
       </scripts>
       <scripts name="GUI">
         <scripts name="player_interface">
@@ -784,11 +799,16 @@
             <script>scripts\player_interface_manage_cursor.gml</script>
             <script>scripts\player_interface_snapback_scale.gml</script>
             <script>scripts\player_interface_adjust_scale.gml</script>
-            <script>scripts\player_interface_draw_dice_check.gml</script>
+            <script>scripts\player_interface_draw_dice_info.gml</script>
+            <script>scripts\player_interface_draw_dice_roll.gml</script>
             <script>scripts\player_interface_draw_backpack.gml</script>
             <script>scripts\player_interface_draw_background.gml</script>
             <script>scripts\num_to_percentage_2d6.gml</script>
             <script>scripts\player_interface_set_draw_vars.gml</script>
+            <script>scripts\player_interface_read_inputs.gml</script>
+            <script>scripts\player_interface_default_roll_scripts.gml</script>
+            <script>scripts\execute_success_script.gml</script>
+            <script>scripts\execute_failure_script.gml</script>
           </scripts>
           <scripts name="fsm">
             <script>scripts\player_interface_inventory.gml</script>
@@ -797,16 +817,18 @@
             <script>scripts\player_interface_to_disabled.gml</script>
             <script>scripts\player_interface_to_dice_check.gml</script>
             <script>scripts\player_interface_dice_check.gml</script>
+            <script>scripts\player_interface_dice_check_throw.gml</script>
+            <script>scripts\player_interface_dice_check_finish.gml</script>
           </scripts>
           <script>scripts\player_interface_create.gml</script>
           <script>scripts\player_interface_destroy.gml</script>
           <script>scripts\player_interface_step.gml</script>
           <script>scripts\player_interface_draw_gui.gml</script>
           <script>scripts\player_interface_end_step.gml</script>
-          <script>scripts\player_interface_read_inputs.gml</script>
           <script>scripts\item_name_to_sprite.gml</script>
           <scripts name="external">
             <script>scripts\make_inventory_bounce.gml</script>
+            <script>scripts\player_interface_open_check.gml</script>
           </scripts>
         </scripts>
         <scripts name="interface item">
@@ -828,6 +850,9 @@
           <script>scripts\dice_create.gml</script>
           <script>scripts\dice_step.gml</script>
           <script>scripts\dice_draw_gui.gml</script>
+          <script>scripts\dice_toss.gml</script>
+          <script>scripts\dice_alarm_0.gml</script>
+          <script>scripts\dice_alarm_1.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -906,6 +931,7 @@
         <script>scripts\draw_text_shadow.gml</script>
         <script>scripts\draw_text_shadow_ext.gml</script>
         <script>scripts\draw_debug_point.gml</script>
+        <script>scripts\draw_fov.gml</script>
       </scripts>
       <scripts name="Files">
         <script>scripts\file_text_open_read_all.gml</script>
@@ -986,6 +1012,7 @@
         <script>scripts\ds_list_to_string.gml</script>
         <script>scripts\ds_list_print.gml</script>
         <script>scripts\ds_list_add_array.gml</script>
+        <script>scripts\ds_list_merge.gml</script>
       </scripts>
       <scripts name="Math">
         <scripts name="Angles">
@@ -1327,6 +1354,7 @@
       <script>scripts\inputdog_released.gml</script>
       <script>scripts\inputdog_set_rumble.gml</script>
       <script>scripts\scrSaveInputMapping.gml</script>
+      <script>scripts\inputdog_get_key_of_input.gml</script>
     </scripts>
     <scripts name="IslandGen2D">
       <scripts name="autoTiling">
@@ -1458,6 +1486,7 @@
             <object>objects\objMMTile</object>
             <object>objects\objMMDebugTile</object>
             <object>objects\objMMDebugSolid</object>
+            <object>objects\objMMObstacleSolid</object>
             <objects name="Physics">
               <object>objects\objMovementEntityParent</object>
               <object>objects\objSolidParent</object>
@@ -1478,6 +1507,7 @@
               </objects>
               <objects name="Organisms">
                 <object>objects\objOrganismParent</object>
+                <object>objects\objObstacle</object>
                 <objects name="legacy shit">
                   <objects name="Top Down">
                     <object>objects\objDan</object>
