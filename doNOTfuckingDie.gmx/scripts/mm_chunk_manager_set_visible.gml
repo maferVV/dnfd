@@ -15,6 +15,7 @@
         with(entity_instance)
         {
             visible = set_visible;
+            if(script_exists(on_visible_script)) script_execute(on_visible_script);
         }
     }
     

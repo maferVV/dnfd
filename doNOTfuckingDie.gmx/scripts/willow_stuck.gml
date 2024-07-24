@@ -16,7 +16,6 @@ if(random(5) < 1)
 willow_readInputs();
 tmc_dt_step_full();
 tmc_dt_step_unstuck(input_direction);
-willow_manage_interaction();
 set_depth();
 
 if( !place_meeting_3D(x, y, z, collision_object) )

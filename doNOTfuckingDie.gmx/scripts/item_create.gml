@@ -5,7 +5,7 @@ tmc_dt_set_friction(8);
 canDrawCollider = false&&global.debug;
 bounce = 0.5;
 yoffset = 0;
-item_name = "pebble";
+item_name = "poop";
 text = "";
 interactable = true;
 interact_script = item_pick_up;

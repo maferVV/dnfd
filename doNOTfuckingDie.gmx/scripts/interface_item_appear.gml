@@ -11,4 +11,6 @@
     sprite_index = item_name_to_sprite(inventory_item[? "string"]);
     depth_offset = player_interface.depth - 1000;
     set_scale(player_interface.image_xscale);
+    
+    interface_item_adjust_equiped_ui();
 }

@@ -24,7 +24,8 @@ else
 }
 
 /// Manage outside inventory space
-if( !position_meeting(x-player_interface.backpack_xoffset,
+if( (player_interface.state_name == "inventory")&&
+    !position_meeting(x-player_interface.backpack_xoffset,
                         y-player_interface.backpack_yoffset,
                         player_interface))
 {
@@ -34,7 +35,7 @@ if( !position_meeting(x-player_interface.backpack_xoffset,
         image_alpha = 0.5;
     }
     else
-        interface_item_drop(); 
+        interface_item_drop();
 }
 else
     image_alpha = 1;

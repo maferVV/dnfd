@@ -53,6 +53,8 @@ enum ground {
    impassable = PF_LARGESTNUMBER
 }
 
+world_manager = instance_find(objWorldManager,0);
+
 route = path_add() // where we save it 
 path_set_closed(route, false)
 path_set_kind(route,1)

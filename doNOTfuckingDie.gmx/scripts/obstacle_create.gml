@@ -1,6 +1,6 @@
 event_inherited();
 
-interactable = true;
+interactable = false;
 interact_script = obstacle_interact;
 dt_image_speed = 0;
 my_solid = noone;

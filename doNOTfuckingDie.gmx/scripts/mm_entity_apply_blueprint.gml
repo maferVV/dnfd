@@ -20,7 +20,9 @@
             case "debug_string": debug_string = string(value); break;
             case "item_name": item_name = string(value); break;
             case "is_destroyed": is_destroyed = value; break;
-            case "roll_check": roll_check = value; break;
+            case "check_number": check_number = value; break;
+            case "image_index": image_index = real(value); break;
+            case "tile_name": tile_name = string(value); break;
             default: error("var for "+string(type_str)+" not found", 0); break;
         }
     }

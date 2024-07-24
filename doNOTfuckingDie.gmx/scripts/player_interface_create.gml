@@ -4,8 +4,10 @@
 player = noone;
 inventory = noone;
 cursor = objCursor;
+waiting_for_doubleclick = false;
 
 // vars
+debug = false&&global.debug;
 playerSlot = 1;
 fg_alpha = 0;
 fg_color = c_white;
@@ -20,6 +22,15 @@ backpack_yoffset_disabled = 0;
 backpack_yoffset_enabled = 0;
 backpack_xscale_bounce = 0;
 backpack_yscale_bounce = 0;
+inventory_item_equiped = noone;
+
+// blueprints
+blueprint_sprite_width = 0;
+blueprint_sprite_height = 0;
+blueprint_x = 0;
+blueprint_y = 0;
+blueprint_y_disabled = 0;
+blueprint_y_enabled = 0;
 
 // roll check
 can_skip_check = true;
@@ -38,6 +49,7 @@ dice_scale_modifier = 2;
 dice_xoffset = 0; dice_yoffset = 0;
 dice_xscale = 0; dice_yscale = 0;
 dice_width = 0; dice_height = 0;
+equiped_x = 0; equiped_y = 0;
 player_interface_set_draw_vars();
 
 depth = -20;

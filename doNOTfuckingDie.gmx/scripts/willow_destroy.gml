@@ -1,3 +1,3 @@
 state_cleanup();
 
-ds_map_destroy(inventory);
+ds_list_destroy(inventory);

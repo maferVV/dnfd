@@ -4,7 +4,7 @@
     precipitation = argument0;
     temperature = argument1;
     
-    if(temperature > 0.6)
+    if(temperature > 0.0)
         return "manglar"
     else
         return "rainforest"

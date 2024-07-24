@@ -7,8 +7,7 @@ inventory = inventory_load();
 inventory_manager = instance_create(x, y, objPlayerInterface);
 inventory_manager.player = self.id;
 inventory_manager.inventory = self.inventory;
-
-inventory_create_item(inventory, "sword");
+equiped = noone; // key to inventory
 
 // doginput
 isPlayerControlled = false;

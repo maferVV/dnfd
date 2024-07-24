@@ -1,4 +1,4 @@
-/// draw_set([alpha], [color], [font], [halign fa_left/center/right], [valign fa_top/middle/bottom])
+/// draw_set([alpha], [color], [font], [fa_left/fa_center/fa_right], [fa_top/fa_middle/fa_bottom])
 
 // Ommit argument to reset configuration to default.
 

@@ -20,7 +20,7 @@ alarm[0] = 1;
 
 /// day time manager
 minutes_passed = 8*60//0; // 0-1440 minutes in a day
-minute_spd = 1/60; // how many minutes increment per step?
+minute_spd = 2/60; // how many minutes increment per step?
 // schedule events
 prevHour = 0;
 sunrise_hour = 6;

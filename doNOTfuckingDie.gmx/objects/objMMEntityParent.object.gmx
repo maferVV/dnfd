@@ -30,6 +30,7 @@ interactable = false;
 is_hover = false;
 my_solid = noone;
 interact_script = noone;
+on_visible_script = noone;
 </string>
           </argument>
         </arguments>
